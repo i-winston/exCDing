@@ -1,0 +1,2 @@
+class ContactAnswer < ApplicationRecord
+end
