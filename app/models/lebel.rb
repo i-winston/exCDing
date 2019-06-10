@@ -1,0 +1,2 @@
+class Lebel < ApplicationRecord
+end
