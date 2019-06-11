@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  devise_for :admins, controllers: {
+    sessions: 'admins/sessions',
+    passwords: 'admins/passwords',
+    registrations: 'admins/registrations'
+  }
+  devise_for :endusers, controllers: {
+    sessions: 'endusers/sessions',
+    passwords: 'endusers/passwords',
+    registrations: 'endusers/registrations'
+  }
   namespace :admins do
     get 'homes/index'
   end
@@ -35,7 +45,5 @@ Rails.application.routes.draw do
   get 'products/show'
   get 'products/edit'
   get 'products/new'
-  devise_for :admins
-  devise_for :endusers
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
