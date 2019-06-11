@@ -10,17 +10,17 @@
         <ul class="nav navbar-nav navbar-right">
           <% if enduser_signed_in? %>
           <li class="nav-list-item"><p>username</p></li>
-          <li class="nav-list-item"><%= link_to '　'
-          ,endusers_index_path,
-          class: "glyphicon glyphicon-home home" %></li>
-          <li class="nav-list-item"><%= link_to '　',endusers_sign_up_path,class: "glyphicon glyphicon-shopping-cart" %></li>
-          <li class="nav-list-item"><%= link_to '　',endusers_sign_up_path,class: "glyphicon glyphicon-user" %></li>
-          <li class="nav-list-item"><%= link_to '　',endusers_sign_up_path,class: "glyphicon glyphicon-log-out" %></li>
+
+          <li class="nav-list-item"><%= link_to '　', eadmins_products_index_path ,class: "glyphicon glyphicon-home home" %></li>
+          <li class="nav-list-item"><%= link_to '　', admins_products_index_path ,class: "glyphicon glyphicon-shopping-cart" %></li>
+          <li class="nav-list-item"><%= link_to '　', admins_products_index_path ,class: "glyphicon glyphicon-user" %></li>
+          <li class="nav-list-item"><%= link_to '　', admins_products_index_path ,class: "glyphicon glyphicon-log-out" %></li>
           <% else %>
-          <li class="nav-list-item"><%= link_to '　',endusers_sign_up_path,class: "glyphicon glyphicon-home home" %></li>
-          <li class="nav-list-item"><%= link_to '　',endusers_sign_up_path,class: "glyphicon glyphicon-shopping-cart" %></li>
-          <li class="nav-list-item"><%= link_to '　',endusers_sign_up_path,class: "glyphicon glyphicon-user" %></li>
-          <li class="nav-list-item"><%= link_to '　',endusers_sign_up_path,class: "glyphicon glyphicon-log-in" %></li>
+          <li class="nav-list-item"><%= link_to '　', admins_products_index_path ,class: "glyphicon glyphicon-home home" %></li>
+          <li class="nav-list-item"><%= link_to '　', admins_products_index_path ,class: "glyphicon glyphicon-shopping-cart" %></li>
+          <li class="nav-list-item"><%= link_to '　', admins_products_index_path ,class: "glyphicon glyphicon-user" %></li>
+          <li class="nav-list-item"><%= link_to '　', admins_products_index_path ,class: "glyphicon glyphicon-log-in" %></li>
+
           <% end %>
         </ul>
       </nav>
