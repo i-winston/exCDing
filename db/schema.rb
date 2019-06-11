@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_10_062846) do
+ActiveRecord::Schema.define(version: 2019_06_11_043141) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2019_06_10_062846) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
@@ -59,6 +60,13 @@ ActiveRecord::Schema.define(version: 2019_06_10_062846) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "first_name", null: false
+    t.string "family_name", null: false
+    t.string "first_name_kana", null: false
+    t.string "family_name_kana", null: false
+    t.string "phone_number", null: false
+    t.boolean "is_deleted", default: false, null: false
+    t.datetime "deleted_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_endusers_on_email", unique: true
@@ -79,6 +87,12 @@ ActiveRecord::Schema.define(version: 2019_06_10_062846) do
   end
 
   create_table "labels", force: :cascade do |t|
+    t.string "label_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "lebels", force: :cascade do |t|
     t.string "label_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
