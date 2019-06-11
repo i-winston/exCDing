@@ -1,22 +1,16 @@
-
-	<div class="container">
-		<div class="row">
-			<div class ="col-lg-8" >
-				<div class="row">
-					<p class="admin_product">
-						<%= link_to "商品管理" , admins_products_index_path ,class: "btn btn-info col-xs-offset-2" %>
-					</p>
-					<p class="admin_product">
-						<%= link_to "会員一覧" , admins_endusers_index_path ,class: "glyphicon glyphicon-book books" %>
-					</p>
-					<p class="admin_product">
-						<%= link_to "購入履歴一覧" , admins_orders_index_path ,class: "btn btn-info col-xs-offset-2" %>
-					</p>
-					<p class="admin_product">
-						<%= link_to "お問い合わせ" , admins_contacts_index_path ,class: "btn btn-info col-xs-offset-2" %>
-					</p>
-			</div>
+<div class="container">
+	<div class="row">
+		<div class ="col-lg-8" >
+			<div class="row">
+					<tr>
+						<td><%= link_to "商品管理" , admins_products_index_path ,class: "btn btn-info col-xs-offset-2" %></td>
+						<td><%= link_to "会員一覧" , admins_endusers_index_path ,class: "btn btn-info col-xs-offset-2" %></td>
+						<br>
+						<td><%= link_to "購入履歴一覧" , admins_orders_index_path ,class: "btn btn-info col-xs-offset-2" %></td>
+						<td><%= link_to "お問い合わせ" , admins_contacts_index_path ,class: "btn btn-info col-xs-offset-2" %></td>
+					</tr>
 			</div>
 		</div>
 	</div>
 </div>
+
