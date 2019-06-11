@@ -21,14 +21,4 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* 使用gem
-	administrate
-	devise
-	searchcop
-	kaminari
-	refile
-	refile-mini_magick
-	paranoid
-	jquery-rails
-	bootstrap
-	* ...
+* ...
