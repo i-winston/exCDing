@@ -1,2 +1,0 @@
-class LebelsController < ApplicationController
-end
