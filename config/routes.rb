@@ -17,12 +17,18 @@ Rails.application.routes.draw do
   }
   root 'products#index'
   resources :endusers , only: [:edit, :show, :update, :destroy] 
-  resources :pridycts, only: [:index, :show]
+  resources :products, only: [:index, :show]
   resources :product_carts , only: [:index, :create, :destroy]  
-  resources :orders , only: [:create, :destroy]
+  resources :orders , only: [:new, :create, :destroy]
   resources :contact , only: [:new, :create]  
-  resources : , only: [:] 
-  resources : , only: [:] 
-  resources : , only: [:] 
-  resources : , only: [:] 
-  resources : , only: [:] 
+  resources :artists , only: [:create] 
+  resources :genres , only: [:create] 
+  resources :lebels , only: [:create] 
+
+  namespace :admins do
+  resources :products , only: [:new, :create, :index, :edit, :update, :destroy, :show]
+  resources :endusers , only: [:index, :show, :edit, :update]
+  resources :orders , only: [:index]  
+  resources :contacts , only: [:index, :show, :create] 
+  resources :homes , only: [:index] 
+  end
