@@ -1,0 +1,25 @@
+<h3>アーティスト登録</h3>
+
+	<%= form_for(@artist) do |f| %>
+		<%= f.text_field :artists_name, "新規登録するアーティスト名を入力" %>
+		<%= f.submit "新規登録" %>
+	<% end %>
+
+	<table>
+        <thead>
+          	<tr>
+              	<th>登録No.</th>
+              	<th>アーティスト名</th>
+            </tr>
+         </thead>
+
+        <tbody>
+            <% @artists.each do |artist| %>
+              	<tr>
+                	<td><%= artist.id %></td>
+                	<td><%= artist.artist_name %></td>
+                	<td><%= link_to "削除", admin_artist_path(artist.id), method: :delete, data:{ confirm: "本当に削除しますか？" } %></td>
+              	</tr>
+            <% end %>
+        </tbody>
+    </table>
