@@ -12,12 +12,11 @@
 
           <li class="nav-list-item"><p>username</p></li>
 
-          </form>
 
-          <li class="nav-list-item"><%= link_to '　', admins_products_index_path ,class: "glyphicon glyphicon-home home" %></li>
-          <li class="nav-list-item"><%= link_to '　', admins_products_index_path ,class: "glyphicon glyphicon-shopping-cart" %></li>
-          <li class="nav-list-item"><%= link_to '　', admins_products_index_path ,class: "glyphicon glyphicon-user" %></li>
-          <li class="nav-list-item"><%= link_to '　', admins_products_index_path ,class: "glyphicon glyphicon-log-out" %></li>
+          <li class="nav-list-item"><%= link_to '　', admins_products_path ,class: "glyphicon glyphicon-home home" %></li>
+          <li class="nav-list-item"><%= link_to '　', admins_products_path ,class: "glyphicon glyphicon-shopping-cart" %></li>
+          <li class="nav-list-item"><%= link_to '　', admins_products_path ,class: "glyphicon glyphicon-user" %></li>
+          <li class="nav-list-item"><%= link_to '　', admins_products_path ,class: "glyphicon glyphicon-log-out" %></li>
           <% else %>
 
           <form class="navbar-form navbar-left" role="search">
@@ -27,10 +26,10 @@
           <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
           </form>
 
-          <li class="nav-list-item"><%= link_to '　', admins_products_index_path ,class: "glyphicon glyphicon-home home" %></li>
-          <li class="nav-list-item"><%= link_to '　', admins_products_index_path ,class: "glyphicon glyphicon-shopping-cart" %></li>
-          <li class="nav-list-item"><%= link_to '　', admins_products_index_path ,class: "glyphicon glyphicon-user" %></li>
-          <li class="nav-list-item"><%= link_to '　', admins_products_index_path ,class: "glyphicon glyphicon-log-in" %></li>
+          <li class="nav-list-item"><%= link_to '　', admins_products_path ,class: "glyphicon glyphicon-home home" %></li>
+          <li class="nav-list-item"><%= link_to '　', admins_products_path ,class: "glyphicon glyphicon-shopping-cart" %></li>
+          <li class="nav-list-item"><%= link_to '　', admins_products_path ,class: "glyphicon glyphicon-user" %></li>
+          <li class="nav-list-item"><%= link_to '　', admins_products_path ,class: "glyphicon glyphicon-log-in" %></li>
 
           <% end %>
         </ul>
