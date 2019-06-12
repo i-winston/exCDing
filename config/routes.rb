@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'orders/index'
+  get 'orders/new'
+  namespace :admins do
+    get 'contacts/index'
+    get 'contacts/show'
+  end
   devise_for :admins, controllers: {
     sessions: 'admins/sessions',
     passwords: 'admins/passwords',
@@ -11,10 +17,6 @@ Rails.application.routes.draw do
   }
   namespace :admins do
     get 'homes/index'
-  end
-  namespace :admins do
-    get 'contacts/index'
-    get 'contacts/show'
   end
   namespace :admins do
     get 'orders/index'
