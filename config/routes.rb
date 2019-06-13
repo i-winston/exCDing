@@ -32,4 +32,6 @@ Rails.application.routes.draw do
   resources :contacts , only: [:index, :show, :create] 
   resources :homes , only: [:index] 
   end
+
 end
+

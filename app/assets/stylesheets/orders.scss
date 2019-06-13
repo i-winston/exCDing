@@ -1,3 +1,23 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.box-order-index {
+	width: 70%;
+	height: 250px;
+	border: 2px solid #8C8C00;
+	background-color: #FFFCEB;
+	margin-top: 50px; 
+
+}
+.complete-massage-order{
+	padding: 20px 20px 0 20px;
+}
+.table-order {
+	padding: 20px;
+}
+.check-order {
+	margin: 0 auto; 
+}
+table tr {
+	line-height: 40px;
+}
