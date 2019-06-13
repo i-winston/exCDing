@@ -1,3 +1,4 @@
 class Label < ApplicationRecord
-	belongs_to :products
+	has_many :products, dependent: :destroy
+	validates :label_name, presence: true, uniqueness: true
 end

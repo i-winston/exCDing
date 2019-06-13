@@ -2,9 +2,9 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-4">
-                <h3>ジャンル登録</h3>
-                    <%= form_for(@genre) do |f| %>
-                        <%= f.text_field :genre_name, autofocus: true, class: "form-control", placeholder: "新規登録するジャンル名を入力" %>
+                <h3>レーベル登録</h3>
+                    <%= form_for(@label) do |f| %>
+                        <%= f.text_field :label_name, autofocus: true, class: "form-control", placeholder: "新規登録するレーベル名を入力" %>
                         <%= f.submit "新規登録", class: "btn btn-success btn-lg btn-block" %>
                     <% end %>
             </div>
@@ -14,15 +14,15 @@
                     <thead>
                         <tr>
                             <th>登録No.</th>
-                            <th>ジャンル名</th>
+                            <th>レーベル名</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <% @genres.each do |genre| %>
+                        <% @labels.each do |label| %>
                             <tr>
-                                <td><%= genre.id %></td>
-                                <td><%= genre.genre_name %></td>
-                                <td><%= link_to "削除", genre_path(genre.id), class: "btn btn-danger btn-xs", method: :delete, data:{ confirm: "本当に削除しますか？" } %></td>
+                                <td><%= label.id %></td>
+                                <td><%= label.label_name %></td>
+                                <td><%= link_to "削除", label_path(label.id), class: "btn btn-danger btn-xs", method: :delete, data:{ confirm: "本当に削除しますか？" } %></td>
                             </tr>
                         <% end %>
                     </tbody>

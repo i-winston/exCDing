@@ -39,6 +39,10 @@
     user-select: none;
     margin-bottom: 30px;
 }
+
 .sign-up-field {
-	border-radius: 4px;
+
+.container {
+    padding-left: 20px
+
 }
