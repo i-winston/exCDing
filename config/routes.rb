@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'orders/index'
+  get 'orders/new'
+  namespace :admins do
+    get 'contacts/index'
+    get 'contacts/show'
+  end
   devise_for :admins, controllers: {
     sessions: 'admins/sessions',
     passwords: 'admins/passwords',
@@ -9,27 +15,26 @@ Rails.application.routes.draw do
     passwords: 'endusers/passwords',
     registrations: 'endusers/registrations'
   }
+  root 'products#index'
+  resources :endusers , only: [:edit, :show, :update, :destroy] 
+  resources :products, only: [:index, :show]
+  resources :product_carts , only: [:index, :create, :destroy]  
+  resources :orders , only: [:new, :create, :destroy]
+  resources :contact , only: [:new, :create]  
+  resources :artists , only: [:create] 
+  resources :genres , only: [:create] 
+  resources :lebels , only: [:create] 
+
   namespace :admins do
-    get 'homes/index'
+  resources :products , only: [:new, :create, :index, :edit, :update, :destroy, :show]
+  resources :endusers , only: [:index, :show, :edit, :update]
+  resources :orders , only: [:index]  
+  resources :contacts , only: [:index, :show, :create] 
+  resources :homes , only: [:index] 
   end
-  namespace :admins do
-    get 'contacts/index'
-    get 'contacts/show'
-  end
-  namespace :admins do
-    get 'orders/index'
-  end
-  namespace :admins do
-    get 'endusers/index'
-    get 'endusers/show'
-    get 'endusers/edit'
-  end
-  namespace :admins do
-    get 'products/new'
-    get 'products/index'
-    get 'products/edit'
-    get 'products/show'
-  end
+<<<<<<< HEAD
+end
+=======
   get 'endusers/edit'
   get 'endusers/show'
   get 'endusers/index'
@@ -51,3 +56,4 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
+>>>>>>> bd722e9a891f0f9687ade4215050ee2693608ca9
