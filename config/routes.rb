@@ -21,9 +21,9 @@ Rails.application.routes.draw do
   resources :product_carts , only: [:index, :create, :destroy]  
   resources :orders , only: [:new, :create, :destroy]
   resources :contact , only: [:new, :create]  
-  resources :artists , only: [:create] 
-  resources :genres , only: [:create] 
-  resources :lebels , only: [:create] 
+  resources :artists, only: [:index, :create, :destroy]
+  resources :labels, only: [:index, :create, :destroy]
+  resources :genres, only: [:index, :create, :destroy]
 
   namespace :admins do
   resources :products , only: [:new, :create, :index, :edit, :update, :destroy, :show]
@@ -32,4 +32,6 @@ Rails.application.routes.draw do
   resources :contacts , only: [:index, :show, :create] 
   resources :homes , only: [:index] 
   end
+
 end
+
