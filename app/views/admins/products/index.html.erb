@@ -1,0 +1,32 @@
+
+    <h2>商品一覧</h2>
+  </div>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>画像</th>
+            <th>シングル・アルバム名</th>
+            <th>アーティスト名</th>
+            <th>価格（税別）</th>
+            <th>在庫数</th>
+            <th>ステータス</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @products.each do |product| %>
+            <tr>
+              <td><%= link_to product.id, admins_product_path(product.id) %></td>
+              <td><%= attachment_image_tag product, :image, size: "30x30", format: 'png', fallback: "/images/noimage.png" %></td>
+              <td><%= product.title %></td>
+              <td><%= product.artist.artist %></td>
+              <td>¥<%= product.price %></td>
+              <td><%= product.stock %></td>
+              <td><%= product.status %></td>
+              <td><%= link_to "編集", edit_admins_product_path(product), class: "btn btn-success btn-xs btn-block" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+

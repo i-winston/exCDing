@@ -1,0 +1,11 @@
+<div class="nested-fields well well-compact">
+  <div class="form-group">
+    <%= f.label :song_name, "曲名" %>
+    <%= f.text_field :song_name %>
+    <%= form_for @artist do |a| %>
+    <%= f.label :origin_id %>
+    <%= f.collection_select :origin_id, Origin.all, id, :name %>
+    <% end %>
+    <%= link_to_remove_association "曲削除", f %>
+  </div>
+</div>
