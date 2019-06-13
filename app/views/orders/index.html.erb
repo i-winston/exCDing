@@ -1,2 +1,33 @@
-<h1>Orders#index</h1>
-<p>Find me in app/views/orders/index.html.erb</p>
+<%= render "endusers/header" %>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-10 col-lg-offset-2">
+			<div class="box-order-index">
+				<h3 class="complete-massage-order" style="color: orange;font-weight: bolder;">ありがとうございます。注文が確定されました。</h3>
+				<div class="table-order">
+				<table>
+			      <tbody>
+					<tr>
+						<td>お届け先　　</td>
+						<td>xx県xx市xx区x</td>
+					</tr>
+					<tr>
+						<td>宛名　　</td>
+						<td>山田太郎</td>
+					</tr>
+					<tr>
+						<td>注文日時　　</td>
+						<td>Thu Jun 10</td>
+					</tr>
+				  </tbody>
+				</table>
+				</div>
+			</div>
+			<dir class="row">
+				<div class="col-lg-2 col-lg-offset-7">
+				  <h4><%= link_to '確認', admins_products_path, class:"btn btn-success col-xs-6"  %></h4>
+			    </div>
+			</dir>
+		</div>
+	</div>
+</div>
