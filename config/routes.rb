@@ -32,4 +32,28 @@ Rails.application.routes.draw do
   resources :contacts , only: [:index, :show, :create] 
   resources :homes , only: [:index] 
   end
+<<<<<<< HEAD
 end
+=======
+  get 'endusers/edit'
+  get 'endusers/show'
+  get 'endusers/index'
+  get 'endusers/new'
+  get 'contacts/new'
+  get 'contacts/index'
+  get 'contacts/show'
+  get 'orders/new'
+  get 'orders/index'
+  get 'product_carts/index'
+  get 'favorites/index'
+  get 'products/index'
+  get 'products/show'
+  get 'products/edit'
+  get 'products/new'
+  resources :artists, only: [:index, :create, :destroy]
+  resources :labels, only: [:index, :create, :destroy]
+  resources :genres, only: [:index, :create, :destroy]
+
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+end
+>>>>>>> bd722e9a891f0f9687ade4215050ee2693608ca9
