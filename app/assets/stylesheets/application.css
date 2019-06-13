@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
-.btn-info {
+.btn-info-homes {
     color: #000;
     background-color: rgb(218, 232, 252);
     border-color: #46b8da;
@@ -38,4 +38,7 @@
     -ms-user-select: none;
     user-select: none;
     margin-bottom: 30px;
+}
+.sign-up-field {
+	border-radius: 4px;
 }
