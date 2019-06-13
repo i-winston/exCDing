@@ -48,4 +48,26 @@
 .container {
     padding-left: 20px
 
+.glyphicon-log-out{
+    font-size: 25px;
+}
+.glyphicon-user{
+    font-size: 25px;
+}
+.glyphicon-shopping-cart{
+    font-size: 25px;
+}
+
+.navbar-brand {
+    text-align: center;
+    font-size: 40px;
+    padding-left: 50px;
+}
+
+.navbar-default{
+    padding: 0px 0px 0px 0px;
+}
+
+.navbar-form{
+    margin: 12.5px 0px 12.5px 0px;
 }

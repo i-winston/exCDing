@@ -1,35 +1,87 @@
-  <header class>
-    <div class="container">
-      <nav class="nav navbar-nav navbar-left">
-        <h3>exCDing</h3>
-      </nav>
-      <nav class="nav navbar-nav navbar-left">
-      </nav>
-
-      <nav class="nav-box">
-        <ul class="nav navbar-nav bg-success navbar-right">
+ 
           <% if enduser_signed_in? %>
+          <nav class="navbar navbar-default">
+          <div class="container-fluid">
+          <div class="navbar-header">
+           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample3">
+           <span class="sr-only">Toggle navigation</span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           </button>
+           <a class="navbar-brand" href="#">
+           exCDing
+           </a>
+           </div>
 
-          <li class="nav-list-item"><p>username</p></li>
+           <div class="collapse navbar-collapse" id="navbarEexample3">
 
+          <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
 
-          <li class="nav-list-item"><%= link_to '　', admins_products_path ,class: "glyphicon glyphicon-home home" %></li>
-          <li class="nav-list-item"><%= link_to '　', admins_products_path ,class: "glyphicon glyphicon-shopping-cart" %></li>
-          <li class="nav-list-item"><%= link_to '　', admins_products_path ,class: "glyphicon glyphicon-user" %></li>
-          <li class="nav-list-item"><%= link_to '　', admins_products_path ,class: "glyphicon glyphicon-log-out" %></li>
-          <% else %>
+          <li class="active"><a href="#"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></li>
 
-          <form class="navbar-form navbar-left" role="search">
+          <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></li>
+
+          <li><a href="#"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+          <li ><a href="#">username</a></li>
+        </ul>
+
+        <form class="navbar-form navbar-right" role="search">
           <div class="form-group">
           <input type="text" class="form-control" placeholder="検索キーワード">
           </div>
-          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+          <button type="submit" class="btn btn-default">検索</button>
           </form>
 
-          <li class="nav-list-item"><%= link_to '　', admins_products_path ,class: "glyphicon glyphicon-home home" %></li>
-          <li class="nav-list-item"><%= link_to '　', admins_products_path ,class: "glyphicon glyphicon-shopping-cart" %></li>
-          <li class="nav-list-item"><%= link_to '　', admins_products_path ,class: "glyphicon glyphicon-user" %></li>
-          <li class="nav-list-item"><%= link_to '　', admins_products_path ,class: "glyphicon glyphicon-log-in" %></li>
+          </div>
+          </div>
+          </nav>
+
+          <% else %>
+          <nav class="navbar navbar-default">
+          <div class="container-fluid">
+          <div class="navbar-header">
+           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample3">
+           <span class="sr-only">Toggle navigation</span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           </button>
+           <a class="navbar-brand" href="/">
+           exCDing
+           </a>
+           </div>
+
+           <div class="collapse navbar-collapse" id="navbarEexample3">
+
+          <ul class="nav navbar-nav navbar-right">
+          <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
+
+          <li class="active"><a href="/product_carts"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a></li>
+
+          <li><a href="/endusers/:id"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></li>
+
+          <li><a href="#"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+          <li ><a href="/enduser/:id">username</a></li>
+        </ul>
+
+        <form class="navbar-form navbar-right" role="search">
+          <div class="form-group">
+          <input type="text" class="form-control" placeholder="検索キーワード">
+          </div>
+          <button type="submit" class="btn btn-default">検索</button>
+          </form>
+
+          </div>
+          </div>
+          </nav>
 
           <% end %>
         </ul>
