@@ -24,6 +24,12 @@ class EndusersController < ApplicationController
     end
   end
 
+  def destroy
+    enduser = Enduser.find(params[:id])
+    enduser.destroy
+    redirect_to admins_endusers_path
+  end
+
   private
 
   def user_params

@@ -19,8 +19,8 @@
 							<td style="width: 50%; padding-left: 10px"><%= enduser.id %></td>
 							<td><%= enduser.first_name %></td>
 							<td style="width: 39%;"><%= enduser.family_name %></td>
-							<td><%= link_to 'Edit', admins_endusers_path %></td>	
-							<td><%= link_to '　Delete', admins_endusers_path,methd: :delete, date:{confirm: '削除しますか？'} %></td>
+							<td><%= link_to "Edit", admins_endusers_path %></td>	
+							<td><%= link_to "Dlete", admins_endusers_path, method: :delete, data:{confirm: '削除しますか？'} %></td>
 						</tr>
 						<% end %>
 					</tbody>
