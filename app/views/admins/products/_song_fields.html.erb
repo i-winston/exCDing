@@ -1,11 +1,25 @@
 <div class="nested-fields well well-compact">
-  <div class="form-group">
-    <%= f.label :song_name, "曲名" %>
-    <%= f.text_field :song_name %>
-    <%= form_for @artist do |a| %>
-    <%= f.label :origin_id %>
-    <%= f.collection_select :origin_id, Origin.all, id, :name %>
-    <% end %>
-    <%= link_to_remove_association "曲削除", f %>
-  </div>
+  	<div class="field">
+    	<%= f.label :song_name, "曲名" %>
+    	<%= f.text_field :song_name %>
+	</div>
+
+    <div class="field">
+    	<%= f.label :number, "曲順" %>
+    	<%= f.text_field :number %>
+	</div>
+
+    <div class="field">
+        <%= f.label :artist_name, "アーティスト名" %>
+        <%= select_tag :artist_id, options_from_collection_for_select(Artist.all, :id, :artist_name, params[:artist_id]) %>
+        <%=link_to "アーティスト名がなければこちらから追加", artists_path, class: "btn btn-info btn-xs", id: "border" %>
+    </div>
+
+    <div class="field">
+        <%= f.label :genre_name, "ジャンル名" %>
+        <%= select_tag :genre_id, options_from_collection_for_select(Genre.all, :id, :genre_name, params[:genre_id]) %>
+              <%=link_to "ジャンル名がなければこちらから追加", genres_path, class: "btn btn-info btn-xs", id: "border" %>
+    </div>
+
+    <%= link_to_remove_association "曲削除", f, {class: "btn btn-danger btn-xs", role: "button"}%>
 </div>
