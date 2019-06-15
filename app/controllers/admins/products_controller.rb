@@ -7,8 +7,6 @@ class Admins::ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    binding.pry
-    @product.label_id = params[:label_id].to_i
     @product.save
     redirect_to admins_products_path
   end
@@ -26,10 +24,10 @@ class Admins::ProductsController < ApplicationController
   end
 
   def update
-    @product - Product.find(params[:id])
+    @product = Product.find(params[:id])
     if @product.update_attributes(product_params)
       flash[:success] = "商品情報を更新しました。"
-      redirect_to admins_product_path
+      redirect_to admins_products_path
     else
       render :edit
     end

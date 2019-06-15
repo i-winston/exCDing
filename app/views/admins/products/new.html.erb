@@ -10,15 +10,15 @@
           </div>
         </div>
 
-        <div class="col-xs-4">
+        <div class="col-xs-6">
           <div class="field">
             <%= f.label :product_name, "アルバム/シングル名" %>
             <%= f.text_field :product_name %>
           </div>
 
           <div class="field">
-            <%= f.label :label_name, "レーベル名" %>
-            <%= select_tag :label_id, options_from_collection_for_select(Label.all, :id, :label_name) %>
+            <%= f.label :label_id, "レーベル名" %>
+            <%= f.select :label_id, options_from_collection_for_select(Label.all, :id, :label_name) %>
             <%=link_to "レーベル名がなければこちらから追加", labels_path, class: "btn btn-info btn-xs" %>
           </div>
 
