@@ -1,5 +1,5 @@
 class Song < ApplicationRecord
-	belongs_to :disks
-	belongs_to :artists
-	belongs_to :genres
+  belongs_to :disk
+  belongs_to :artist
+  belongs_to :genre
 end

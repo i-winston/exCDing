@@ -1,2 +1,54 @@
-<h1>Admins::Products#new</h1>
-<p>Find me in app/views/admins/products/new.html.erb</p>
+<div class="body">
+  <div class="container">
+<h1>商品新規登録</h1>
+<%= form_for(@product) do |f| %>
+<div class="col-xs-4">
+  <div class="field">
+    <%= f.label :jacket_id, "ジャケット画像" %>
+    <%= f.attachment_field :jacket_id %>
+  </div>
+</div>
+
+<div class="col-xs-4">
+  <div class="field">
+    <%= f.label :product_name, "アルバム/シングル名" %>
+    <%= f.text_field :product_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :label_name, "レーベル名" %>
+    <%= select_tag :label_id, options_from_collection_for_select(Label.all, :id, :label_name, params[:label_id]) %>
+    <%=link_to "レーベル名がなければこちらから追加", labels_path, class: "btn btn-info btn-xs", id: "border" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :disks, "ディスク" %>
+    <%= f.fields_for :disks do |d| %>
+      <%= render 'disk_fields', f: d %>
+    <% end %>
+    <div class="field">
+      <%= link_to_add_association "ディスクを追加",f, :disks, {class: "btn btn-info btn-xs", role: "button"} %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :product_status, "ステータス" %>
+    <%= f.text_field :product_status %>
+  </div>
+
+  <div class="field">
+    <%= f.label :product_stock, "在庫数" %>
+    <%= f.text_field :product_stock %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price, "価格(税抜)" %>
+    <%= f.text_field :price %>
+  </div>
+
+  <%= f.submit "新規登録" %>
+
+<% end %>
+</div>
+</div>
+</div>

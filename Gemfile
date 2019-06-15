@@ -78,3 +78,7 @@ gem "jquery-rails"
 gem "enum"
 
 gem 'bootstrap-sass', '~> 3.3.6'
+
+gem 'cocoon'
+
+gem 'rubocop'

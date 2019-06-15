@@ -20,5 +20,4 @@ class Admins::ProductsControllerTest < ActionDispatch::IntegrationTest
     get admins_products_show_url
     assert_response :success
   end
-
 end

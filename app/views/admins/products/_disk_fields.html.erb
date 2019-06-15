@@ -1,0 +1,17 @@
+<div class="nested-fields well well-compact">
+  <div class="field">
+    <%= f.label :disk_name, "ディスク名" %>
+    <%= f.text_field :disk_name %>
+    <%= link_to_remove_association "ディスク削除", f, {class: "btn btn-danger btn-xs", role: "button"} %>
+  </div>
+
+  <div id="songs">
+    <%= f.fields_for :songs do |s| %>
+      <%= render 'song_fields', f: s %>
+    <% end %>
+  </div>
+
+  <div id="links">
+    <%= link_to_add_association "曲を追加",f, :songs, {class: "btn btn-info btn-xs", role: "button"} %>
+  </div>
+</div>
