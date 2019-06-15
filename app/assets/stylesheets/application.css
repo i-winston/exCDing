@@ -40,6 +40,7 @@
     margin-bottom: 30px;
 }
 
+
 .form-user.style-1 {
   color: black;
   border: 1px solid black;
@@ -47,6 +48,7 @@
 }
 .container {
     padding-left: 20px
+}
 
 .glyphicon-log-out{
     font-size: 25px;
