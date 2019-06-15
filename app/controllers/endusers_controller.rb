@@ -15,7 +15,8 @@ class EndusersController < ApplicationController
 
   def update
     @enduser = Enduser.find(params[:id])
-    if @enduser.update(endusers_params)
+    if
+      @enduser.update(enduser_params)
       redirect_to enduser_path(@enduser.id)
     else
       render action: "edit"
@@ -32,7 +33,7 @@ class EndusersController < ApplicationController
 
   private
 
-  def user_params
-    params.require(:enduser).permit(:name)
+  def enduser_params
+    params.require(:enduser).permit(:first_name, :first_name_kana, :family_name, :family_name_kana, :registration_address, :registration_postal_code, :phone_number, :email)
   end
 end
