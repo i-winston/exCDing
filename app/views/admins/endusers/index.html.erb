@@ -5,22 +5,24 @@
 				<table>
 					<thead>
 						<tr>
-							<td>ID</td>
-							<td>性</td>
-							<td>名</td>
-							<td>編集</td>
-							<td>削除</td>
+							<th style="width: 50%; padding-left: 10px">ID</th>
+							<th>名</th>
+							<th style="width: 39%;">前</th>
+							<th>編集</th>
+							<th>　削除</th>
 						</tr>
 					</thead>
 					<div class="row">
 					<tbody>
+						<% @endusers.each do |enduser| %>
 						<tr>
-							<td>enduser.id</td>
-							<td>enduser.</td>
-							<td>enduser.</td>
-							<td><%= link_to '編集', admins_endusers_path %></td>	
-							<td><%= link_to '削除', admins_endusers_path,methd: :delete, date:{confirm: '削除しますか？'} %></td>
+							<td style="width: 50%; padding-left: 10px"><%= enduser.id %></td>
+							<td><%= enduser.first_name %></td>
+							<td style="width: 39%;"><%= enduser.family_name %></td>
+							<td><%= link_to 'Edit', admins_endusers_path %></td>	
+							<td><%= link_to '　Delete', admins_endusers_path,methd: :delete, date:{confirm: '削除しますか？'} %></td>
 						</tr>
+						<% end %>
 					</tbody>
 					</div>
 				</table>
