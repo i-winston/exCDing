@@ -4,13 +4,12 @@ class Admins::ProductsController < ApplicationController
     @product = Product.new
     @disk = @product.disks.build
     @song = @disk.songs.build
-    @artist = Artist.new(:origin_id => 1)
   end
 
   def create
     @product = Product.new(product_params)
     @product.save
-    redirect_to admins_products_path
+    redirect_to products_path
   end
 
   def index
