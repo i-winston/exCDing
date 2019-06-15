@@ -3,9 +3,9 @@ class ApplicationRecord < ActiveRecord::Base
 
   def self.search(search)
     if search
-      post.where(['content LIKE ?'], "%#{search}%")
+      Product.where(['product LIKE ?'], "%#{search}%")
     else
-      post.all
+      Producd.all
     end
   end
 end
