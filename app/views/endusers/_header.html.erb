@@ -29,7 +29,7 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-          <li ><%= link_to current_enduser.first_name, enduser_path(current_enduser) %></li>
+          <li ><%= link_to current_enduser.first_name_kana, enduser_path(current_enduser) %></li>
         </ul>
 
         <form class="navbar-form navbar-right" role="search">
@@ -73,9 +73,4 @@
           <% end %>
         </ul>
       </nav>
-
-
-  </div>
-
-
-</header>
+      
