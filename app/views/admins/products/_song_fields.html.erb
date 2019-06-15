@@ -11,14 +11,14 @@
 
     <div class="field">
         <%= f.label :artist_name, "アーティスト名" %>
-        <%= select_tag :artist_id, options_from_collection_for_select(Artist.all, :id, :artist_name, params[:artist_id]) %>
-        <%=link_to "アーティスト名がなければこちらから追加", artists_path, class: "btn btn-info btn-xs", id: "border" %>
+        <%= select_tag :artist_id, options_from_collection_for_select(Artist.all, :id, :artist_name) %>
+        <%=link_to "アーティスト名がなければこちらから追加", artists_path, class: "btn btn-info btn-xs" %>
     </div>
 
     <div class="field">
         <%= f.label :genre_name, "ジャンル名" %>
-        <%= select_tag :genre_id, options_from_collection_for_select(Genre.all, :id, :genre_name, params[:genre_id]) %>
-              <%=link_to "ジャンル名がなければこちらから追加", genres_path, class: "btn btn-info btn-xs", id: "border" %>
+        <%= select_tag :genre_id, options_from_collection_for_select(Genre.all, :id, :genre_name) %>
+              <%=link_to "ジャンル名がなければこちらから追加", genres_path, class: "btn btn-info btn-xs" %>
     </div>
 
     <%= link_to_remove_association "曲削除", f, {class: "btn btn-danger btn-xs", role: "button"}%>

@@ -7,6 +7,8 @@ class Admins::ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    binding.pry
+    @product.label_id = params[:label_id].to_i
     @product.save
     redirect_to admins_products_path
   end
@@ -43,7 +45,7 @@ class Admins::ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:jacket_id, :product_name, :label_id, :product_stock, :product_status, :price,
+    params.require(:product).permit(:jacket, :product_name, :label_id, :product_stock, :product_status, :price,
                                     disks_attributes: [:id, :product_id, :disk_name, :_destroy,
                                                        songs_attributes: [:id, :disk_id, :artist_id, :genre_id, :song_name, :number, :_destroy]])
   end

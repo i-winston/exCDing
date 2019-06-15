@@ -5,5 +5,5 @@ class Product < ApplicationRecord
   has_many :disks, inverse_of: :product
   accepts_nested_attributes_for :disks, reject_if: :all_blank, allow_destroy: true
   belongs_to :label
-  attachment :jacket_id
+  attachment :jacket
 end
