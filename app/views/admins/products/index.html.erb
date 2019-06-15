@@ -20,7 +20,7 @@
               <td><%= product.product_stock %></td>
               <td><%= product.product_status %></td>
               <td><%= link_to "編集", edit_admins_product_path(product), class: "btn btn-info btn-xs", role: "button" %></td>
-              <td><%= link_to "削除", admins_products_path(product.id), class: "btn btn-danger btn-xs", method: :delete, data:{ confirm: "本当に削除しますか？" } %></td>
+              <td><%= link_to "削除", admins_product_path(product.id), class: "btn btn-danger btn-xs", method: :delete, data:{ confirm: "本当に削除しますか？" } %></td>
             </tr>
           <% end %>
         </tbody>
