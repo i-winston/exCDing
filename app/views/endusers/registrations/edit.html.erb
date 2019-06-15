@@ -1,43 +1,118 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<%= render "endusers/header" %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<section class="slice slice-lg sct-color-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 " >
+              <div class="form-user style-1">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+                  <div class="form-header text-center">
+                     <h2>会員情報編集</h2>
+                  </div>
+                  <div class="form-body">
+                      <%= form_for(resource, as: resource_name, url: registration_path(resource_name),html: { method: :put }) do |f| %>
+                        <%= render "devise/shared/error_messages", resource: resource %>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+                              <div class="col-lg-5 col-md-5">
+                        <div class="form-group">
+                          <div class="field">
+                            <%= f.label "姓" %><br />
+                            <%= f.text_field :family_name, autofocus: true, class:"form-control " %>
+                          </div>
+                        </div>
+                      </div>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
+                      <div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2">
+                        <div class="form-group">
+                          <div class="field">
+                            <%= f.label "名" %><br />
+                            <%= f.text_field :first_name, autofocus: true,class:"form-control " %>
+                          </div>
+                        </div>
+                      </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+                      <div class="col-lg-5 col-md-5">
+                        <div class="form-group">
+                          <div class="field">
+                            <%= f.label "フリガナ(セイ)" %><br />
+                            <%= f.text_field :family_name_kana, autofocus: true,class:"form-control"%>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2">
+                        <div class= "form-group">
+                          <div class="field ">
+                            <%= f.label "フリガナ(メイ)" %><br />
+                            <%= f.text_field :first_name_kana, autofocus: true,class:"form-control" %>
+                          </div>
+                        </div>
+                      </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
+                      <div class="col-lg-12">
+                        <div class="form-group">
+                            <div class="field">
+                              <%= f.label :住所  %><font size="1">*ハイフンあり</font><br />
+                              <%= f.text_field :registration_address, autofocus: true, autocomplete: "registration_address" ,class:"form-control" %>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="field">
+                              <%= f.label :郵便番号%><font size="1">*ハイフンあり</font><br />
+                              <%= f.text_field :registration_postal_code, autofocus: true, autocomplete: "registration_postal_code",class:"form-control" %>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="field">
+                              <%= f.label :電話番号%><font size="1">*ハイフンあり</font><br />
+                              <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number",class:"form-control" %>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="field">
+                              <%= f.label :メールアドレス %><br />
+                              <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control" %>
+                            </div>
+                        </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
+                        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                        <% end %>
 
-<h3>Cancel my account</h3>
+                        <div class="form-group">
+                            <div class="field">
+                              <%= f.label :パスワード %>
+                              <% if @minimum_password_length %>
+                              <font size="1"> *6文字以上　変更しない場合空欄</font>
+                              <% end %><br />
+                              <%= f.password_field :password, autocomplete: "new-password",class:"form-control" , id:"password" , placeholder:"新パスワード"%>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                              <%= f.label :パスワード確認 %><br />
+                              <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", id:"inputConfirmPassword", placeholder:"パスワード確認" %>
+                        </div>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+                        <div class="form-group ">
+                              <%= f.label :現在のパスワード %><br />
+                              <%= f.password_field :current_password, autocomplete: "password", class:"form-control", id:"inputCurrentPassword", placeholder:"現在のパスワード" %>
+                        </div>
+                      </div>
 
-<%= link_to "Back", :back %>
+                        <div class="actions">
+                          <div style="padding: 6px, 12px; font-size: 20px; margin: 20px 15px 0 15px; ">
+                            <%= f.submit "変更を保存" , class: "btn btn-block btn-warning"  %>
+                          </div>
+                        </div>
+                        <div class ="actions">
+                          <div style="padding: 6px, 12px; font-size: 20px; margin: 20px 15px 0 15px; ">
+                            <%= button_to "退会" ,registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete ,  class: "btn btn-block btn-danger" %>
+                          </div>
+                        </div>
+                      </div>
+                      <% end %>
+                  </div>
+                </div>
+              </div>
+
+</section>
+
