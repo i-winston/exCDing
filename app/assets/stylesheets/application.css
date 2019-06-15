@@ -73,3 +73,21 @@
 .navbar-form{
     margin: 12.5px 0px 12.5px 0px;
 }
+ .log-in-form{
+    padding: 10px;
+    width:  400px;
+    border: 1px solid #333333;
+    margin: auto;
+    text-align: center;
+}
+.log-in-field{
+    margin: 30px 0 30px 0;
+}
+.btn-log-in{
+    width: 40%;
+}
+.btn-edit{
+    padding: 6px, 12px;
+    font-size: 20px;
+    margin: 20px 15px 0 15px;
+}
