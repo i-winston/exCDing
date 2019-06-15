@@ -16,7 +16,7 @@ class LabelsController < ApplicationController
     @label = Label.find(params[:id])
     @label.destroy
     redirect_to labels_path
-    end
+  end
 
   private
 
