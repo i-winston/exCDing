@@ -1,8 +1,9 @@
 module ApplicationHelper
   def resource_name
-   :enduser
+    :enduser
   end
+
   def resource
-   @resource ||= Enduser.new
+    @resource ||= Enduser.new
   end
 end
