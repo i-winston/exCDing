@@ -3,10 +3,8 @@
       <table id="select" class="table table-hover">
         <thead>
           <tr>
-            <th>ID</th>
             <th>画像</th>
             <th>シングル・アルバム名</th>
-            <th>アーティスト名</th>
             <th>価格（税抜）</th>
             <th>在庫数</th>
             <th>ステータス</th>
@@ -16,13 +14,13 @@
         <tbody>
           <% @products.each do |product| %>
             <tr>
-              <td><%= attachment_image_tag product, :image, size: "30x30", format: 'png' %></td>
+              <td><%= attachment_image_tag product, :jacket, size: "30x30" %></td>
               <td><%= product.product_name %></td>
-              <td><%= product.artist_name %></td>
               <td><%= product.price %></td>
               <td><%= product.product_stock %></td>
               <td><%= product.product_status %></td>
-              <td><%= link_to "編集", edit_admins_product_path(product), class: "btn btn-success btn-xs btn-block" %></td>
+              <td><%= link_to "編集", edit_admins_product_path(product), class: "btn btn-info btn-xs", role: "button" %></td>
+              <td><%= link_to "削除", admins_products_path(product.id), class: "btn btn-danger btn-xs", method: :delete, data:{ confirm: "本当に削除しますか？" } %></td>
             </tr>
           <% end %>
         </tbody>
