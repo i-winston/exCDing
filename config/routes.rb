@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
-  get 'orders/index'
-  get 'orders/new'
-  namespace :admins do
-    get 'contacts/index'
-    get 'contacts/show'
-  end
+
+  post 'admins/products/new' => 'admins_products#create'
   devise_for :admins, controllers: {
     sessions: 'admins/sessions',
     passwords: 'admins/passwords',
@@ -17,7 +13,7 @@ Rails.application.routes.draw do
   }
   root 'products#index'
   resources :endusers , only: [:edit, :show, :update, :destroy] 
-  resources :products, only: [:index, :show]
+  resources :products, only: [:index, :show,]
   resources :product_carts , only: [:index, :create, :destroy]  
   resources :orders , only: [:new, :create, :destroy]
   resources :contact , only: [:new, :create]  
