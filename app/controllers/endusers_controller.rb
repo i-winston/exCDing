@@ -1,8 +1,6 @@
 class EndusersController < ApplicationController
   def edit
     @enduser = Enduser.find(params[:id])
-    @enduser_id = current_enduser.id
-    redirect_to enduser_path(@current_enduser.id) if @enduser.id != current_enduser.id
   end
 
   def show
@@ -17,18 +15,20 @@ class EndusersController < ApplicationController
 
   def update
     @enduser = Enduser.find(params[:id])
-    if @enduser.update(enduser_params)
+    if @enduser.update(endusers_params)
       redirect_to enduser_path(@enduser.id)
     else
       render action: "edit"
     end
   end
 
+
   def destroy
     enduser = Enduser.find(params[:id])
     enduser.destroy
     redirect_to admins_endusers_path
   end
+
 
   private
 

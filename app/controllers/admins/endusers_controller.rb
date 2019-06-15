@@ -1,6 +1,6 @@
 class Admins::EndusersController < ApplicationController
   def index
-  	@endusers = Enduser.all
+    @endusers = Enduser.all
   end
 
   def show
