@@ -1,5 +1,17 @@
 class ProductsController < ApplicationController
 
+  def new
+    @product = Product.new
+    @disk = @product.disks.build
+    @song = @disk.songs.build
+  end
+
+  def create
+    @product = Product.new(product_params)
+
+    @product.save
+    redirect_to admins_products_path
+  end
 
   def index
     @products = Product.all
