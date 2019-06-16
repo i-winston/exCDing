@@ -1,5 +1,4 @@
 class ProductsController < ApplicationController
-
   def new
     @product = Product.new
     @disk = @product.disks.build
@@ -22,5 +21,4 @@ class ProductsController < ApplicationController
     @disks = @product.disks
     @price = (@product.price * 1.08).floor
   end
-
 end
