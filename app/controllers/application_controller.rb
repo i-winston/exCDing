@@ -1,12 +1,11 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+
   def search
     @posts = Post.search(params[:search])
   end
-  def set_current_enduser
-    @current_enduser = Endser.find_by(id: session[:enduser_id])
-  end
+
 
   protected
 
