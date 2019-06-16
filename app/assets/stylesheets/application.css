@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
-.btn-info-homes {
+.btn-info {
     color: #000;
     background-color: rgb(218, 232, 252);
     border-color: #46b8da;

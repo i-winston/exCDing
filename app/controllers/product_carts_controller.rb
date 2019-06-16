@@ -1,7 +1,7 @@
 class ProductCartsController < ApplicationController
   def create
-  	@product_cart = Product.new
-  	@product_cart = current_enduser.id
+    @product_cart = Product.new
+    @product_cart = current_enduser.id
     @product_cart.save
     redirect_to product_carts_path
   end
