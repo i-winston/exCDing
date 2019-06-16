@@ -2,7 +2,7 @@
 
 class AddDeviseModel < ActiveRecord::Migration[5.2]
   def change
-  	create_table :endusers do |t|
+    create_table :endusers do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -41,8 +41,6 @@ class AddDeviseModel < ActiveRecord::Migration[5.2]
       t.string :phone_number, null: false
       t.boolean :is_deleted, null: false, default: false
       t.datetime :deleted_at, null: false
-
-
 
       t.timestamps null: false
     end
@@ -85,7 +83,6 @@ class AddDeviseModel < ActiveRecord::Migration[5.2]
       # ここにadminのカラムを追加
       t.string :name, null: false
 
-
       t.timestamps null: false
     end
 
@@ -94,5 +91,4 @@ class AddDeviseModel < ActiveRecord::Migration[5.2]
     # add_index :admins, :confirmation_token,   unique: true
     # add_index :admins, :unlock_token,         unique: true
   end
-
 end

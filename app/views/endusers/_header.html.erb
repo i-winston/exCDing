@@ -1,42 +1,79 @@
-  <header class>
-    <div class="container">
-      <nav class="nav navbar-nav navbar-left">
-        <h3>exCDing</h3>
-      </nav>
-      <nav class="nav navbar-nav navbar-left">
-      </nav>
 
-      <nav class="nav-box">
-        <ul class="nav navbar-nav bg-success navbar-right">
+          <nav class="navbar navbar-default">
+          <div class="container-fluid">
+          <div class="navbar-header">
+           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample3">
+           <span class="sr-only">Toggle navigation</span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           </button>
+           <a class="navbar-brand" href="/">
+            <div style="font-family: Georgia;">
+               exCDing
+            </div>
+           </a>
+           </div>
+
           <% if enduser_signed_in? %>
 
-          <li class="nav-list-item"><p>username</p></li>
+           <div class="collapse navbar-collapse" id="navbarEexample3">
 
+          <ul class="nav navbar-nav navbar-right">
 
-          <li class="nav-list-item"><%= link_to '　', admins_products_path ,class: "glyphicon glyphicon-home home" %></li>
-          <li class="nav-list-item"><%= link_to '　', admins_products_path ,class: "glyphicon glyphicon-shopping-cart" %></li>
-          <li class="nav-list-item"><%= link_to '　', admins_products_path ,class: "glyphicon glyphicon-user" %></li>
-          <li class="nav-list-item"><%= link_to '　', admins_products_path ,class: "glyphicon glyphicon-log-out" %></li>
-          <% else %>
+          <li><%= link_to "", root_path,class: 'glyphicon glyphicon-home home' %></li>
 
-          <form class="navbar-form navbar-left" role="search">
+          <li><%= link_to "", product_carts_path,class: 'glyphicon glyphicon-shopping-cart' %></li>
+
+          <li><%= link_to "", enduser_path(current_enduser.id),class: 'glyphicon glyphicon-user' %></li>
+
+          <li><%= link_to "",destroy_enduser_session_path, class: "glyphicon glyphicon-log-out logout", method: :delete %></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+          <li ><%= link_to "#{current_enduser.family_name}" + "#{current_enduser.first_name}",enduser_path(current_enduser) %>
+          </li>
+        </ul>
+
+        <form class="navbar-form navbar-right" role="search">
           <div class="form-group">
           <input type="text" class="form-control" placeholder="検索キーワード">
           </div>
-          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+          <button type="submit" class="btn btn-default">検索</button>
           </form>
 
-          <li class="nav-list-item"><%= link_to '　', admins_products_path ,class: "glyphicon glyphicon-home home" %></li>
-          <li class="nav-list-item"><%= link_to '　', admins_products_path ,class: "glyphicon glyphicon-shopping-cart" %></li>
-          <li class="nav-list-item"><%= link_to '　', admins_products_path ,class: "glyphicon glyphicon-user" %></li>
-          <li class="nav-list-item"><%= link_to '　', admins_products_path ,class: "glyphicon glyphicon-log-in" %></li>
+          </div>
+          </div>
+          </nav>
+
+          <% else %>
+
+          <div class="collapse navbar-collapse" id="navbarEexample3">
+
+          <ul class="nav navbar-nav navbar-right">
+
+          <li><%= link_to "", root_path,class: 'glyphicon glyphicon-home home' %></li>
+
+          <li><%= link_to "", new_enduser_registration_path, class: "glyphicon glyphicon-edit sign_up sign_up" %></li>
+
+          <li><%= link_to "", new_enduser_session_path, class: "glyphicon glyphicon-log-in sign_in" %></li>
+          </ul>
+
+        <form class="navbar-form navbar-right" role="search">
+          <div class="form-group">
+          <input type="text" class="form-control" placeholder="検索キーワード">
+          </div>
+          <button type="submit" class="btn btn-default">検索</button>
+          </form>
+
+          </div>
+          </div>
+          </nav>
+
+
+
 
           <% end %>
         </ul>
       </nav>
-
-
-    </div>
-
-
-  </header>
+      

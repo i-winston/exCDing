@@ -1,2 +1,82 @@
-<h1>Orders#new</h1>
-<p>Find me in app/views/orders/new.html.erb</p>
+<%= render "endusers/header" %>
+<div class="containar">
+	<div class="row">
+		<div class="col-lg-8 col-lg-offset-2">
+			<div class="order-format">
+
+				<div class="row">
+					<div class="col-lg-offset-2">
+						<h3><strong>注文内容</strong></h3>
+						<div class="order-detail">
+							<table>
+								<tbody>
+									<tr>
+										<td>商品の小計</td>
+										<td colspan="2"></td>
+										<td>￥1,620</td>
+									</tr>
+									<tr>
+										<td>送料</td>
+										<td colspan="2"></td>
+										<td>￥500</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-lg-offset-2">
+						<h3><strong>お届け先</strong></h3>
+						<div class="order-address">
+							<table>
+								<tr>
+									<td>住所</td>
+									<td style="border: 2px solid #8C8C00;"></td>
+								</tr>
+								<tr>
+									<td>郵便番号</td>
+									<td style="border: 2px solid #8C8C00;"></td>
+								</tr>
+								<tr>
+									<td>宛名</td>
+									<td style="border: 2px solid #8C8C00;"></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-lg-offset-2">
+						<h3><strong>支払い方法</strong></h3>
+						<div class="cash-select">
+							<table>
+								<tr>
+									<td>銀行振込</td>
+								</tr>
+								<tr>
+									<td>クレジットカード</td>
+								</tr>
+								<tr>
+									<td>代引き</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>	
+			<div class="row">
+				<div class="col-lg-12">
+					<h3 style="text-align: center;">注文を確定する</h3>
+				</div>
+			</div>
+				<div class="row">
+				<div class="col-lg-12">
+					<h4 style="text-align: center;">一覧へ戻る</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

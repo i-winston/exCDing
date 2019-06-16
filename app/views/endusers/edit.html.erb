@@ -1,2 +1,97 @@
-<h1>Endusers#edit</h1>
-<p>Find me in app/views/endusers/edit.html.erb</p>
+<%= render "endusers/header" %>
+
+<section class="slice slice-lg sct-color-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 " >
+              <div class="form-user style-1">
+
+                  <div class="form-header text-center">
+                     <h2>会員情報編集</h2>
+                  </div>
+                  <div class="form-body">
+                      <%= form_for(@enduser) do |f| %>
+                        <%= render "devise/shared/error_messages", resource: resource %>
+
+                      <div class="col-lg-5 col-md-5">
+                        <div class="form-group">
+                          <div class="field">
+                            <%= f.label "姓" %><br />
+                            <%= f.text_field :family_name, autofocus: true, class:"form-control " , id:"family_name", placeholder:"姓" %>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2">
+                        <div class="form-group">
+                          <div class="field">
+                            <%= f.label "名" %><br />
+                            <%= f.text_field :first_name, autofocus: true,class:"form-control ", id:"first_name" , placeholder:"名" %>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-5 col-md-5">
+                        <div class="form-group">
+                          <div class="field">
+                            <%= f.label "フリガナ(セイ)" %><br />
+                            <%= f.text_field :family_name_kana, autofocus: true,class:"form-control", id:"family_name_kana", placeholder:"フリガナ(セイ)"%>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2">
+                        <div class= "form-group">
+                          <div class="field ">
+                            <%= f.label "フリガナ(メイ)" %><br />
+                            <%= f.text_field :first_name_kana, autofocus: true,class:"form-control" , id:"first_name_kana", placeholder:"フリガナ(メイ)" %>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-12">
+                        <div class="form-group">
+                            <div class="field">
+                              <%= f.label :住所  %><font size="1">*ハイフンあり</font><br />
+                              <%= f.text_field :registration_address, autofocus: true, autocomplete: "registration_address" ,class:"form-control", id:"registration_address",placeholder:"住所" %>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="field">
+                              <%= f.label :郵便番号%><font size="1">*ハイフンあり半角英数</font><br />
+                              <%= f.text_field :registration_postal_code, autofocus: true, autocomplete: "registration_postal_code",class:"form-control",id:"registration_postal_code", placeholder:"郵便番号" %>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="field">
+                              <%= f.label :電話番号%><font size="1">*ハイフンあり半角英数</font><br />
+                              <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number",class:"form-control",id:"phone_number",placeholder:"電話番号" %>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="field">
+                              <%= f.label :メールアドレス %><br />
+                              <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control", id:"email",placeholder:"メールアドレス" %>
+                            </div>
+                        </div>
+
+
+                      </div>
+
+                        <div class="actions">
+                          <div style="padding: 6px, 12px; font-size: 20px; margin: 20px 15px 0 15px; ">
+                            <%= button_to "変更を保存" , {controller: "endusers",action: "update"} , {class: "btn btn-block btn-warning " } %>
+                          </div>
+                        </div>
+                        <div class ="actions">
+                          <div style="padding: 6px, 12px; font-size: 20px; margin: 20px 15px 0 15px; ">
+                            <%= button_to "退会" ,registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete ,  class: "btn btn-block btn-danger " %>
+                          </div>
+                        </div>
+                      </div>
+                      <% end %>
+                  </div>
+                </div>
+              </div>
+
+</section>
+

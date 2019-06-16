@@ -10,33 +10,8 @@
   </head>
 
   <body>
-    <div class="container">
-      <nav class="nav navbar-nav navbar-left">
-        <span></span>
-      </nav>
-      <nav class="nav navbar-nav navbar-left">
-      </nav>
-
-      <nav class="nav-box">
-        <ul class="nav navbar-nav navbar-right">
-          <% if enduser_signed_in? %>
-          <li class="nav-list-item"><p>username</p></li>
-          <li class="nav-list-item">
-          <li class="glyphicon glyphicon-home home" %></li>
-          <li class="nav-list-item"></li>
-          <li class="nav-list-item"></li>
-          <li class="nav-list-item"></li>
-          <% else %>
-          <li class="nav-list-item"></li>
-          <li class="nav-list-item"></li>
-          <li class="nav-list-item"></li>
-          <li class="nav-list-item"></li>
-          <% end %>
-        </ul>
-      </nav>
-
-
-    </div>
+ 
     <%= yield %>
+    <%= render "endusers/footer" %>
   </body>
 </html>

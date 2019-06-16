@@ -15,5 +15,4 @@ class Admins::EndusersControllerTest < ActionDispatch::IntegrationTest
     get admins_endusers_edit_url
     assert_response :success
   end
-
 end

@@ -1,13 +1,12 @@
-
-    <h2>商品一覧</h2>
-  </div>
+<%= render "enduser/admin" %>
+<h2>商品一覧</h2>
+    <div class="table-responsive">
+      <table id="select" class="table table-hover">
         <thead>
           <tr>
-            <th>ID</th>
             <th>画像</th>
             <th>シングル・アルバム名</th>
-            <th>アーティスト名</th>
-            <th>価格（税別）</th>
+            <th>価格（税抜）</th>
             <th>在庫数</th>
             <th>ステータス</th>
             <th></th>
@@ -16,17 +15,15 @@
         <tbody>
           <% @products.each do |product| %>
             <tr>
-              <td><%= link_to product.id, admins_product_path(product.id) %></td>
-              <td><%= attachment_image_tag product, :image, size: "30x30", format: 'png', fallback: "/images/noimage.png" %></td>
-              <td><%= product.title %></td>
-              <td><%= product.artist.artist %></td>
-              <td>¥<%= product.price %></td>
-              <td><%= product.stock %></td>
-              <td><%= product.status %></td>
-              <td><%= link_to "編集", edit_admins_product_path(product), class: "btn btn-success btn-xs btn-block" %></td>
+              <td><%= attachment_image_tag product, :jacket, size: "30x30" %></td>
+              <td><%= product.product_name %></td>
+              <td><%= product.price %></td>
+              <td><%= product.product_stock %></td>
+              <td><%= product.product_status %></td>
+              <td><%= link_to "編集", edit_admins_product_path(product), class: "btn btn-info btn-xs", role: "button" %></td>
+              <td><%= link_to "削除", admins_product_path(product.id), class: "btn btn-danger btn-xs", method: :delete, data:{ confirm: "本当に削除しますか？" } %></td>
             </tr>
           <% end %>
         </tbody>
       </table>
-
-
+    </div>

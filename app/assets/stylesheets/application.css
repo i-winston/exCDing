@@ -40,9 +40,100 @@
     margin-bottom: 30px;
 }
 
-.sign-up-field {
-
+.user-info-form {
+    margin-top: 60px;
+}
+.form-user.style-1 {
+  color: black;
+  border: 1px solid black;
+  padding: 50px;
+}
+.form-user.style-2{
+    color: black;
+  border: 1px solid black;
+  padding: 30px 3px 50px 3px;
+}
 .container {
     padding-left: 20px
+}
 
+.glyphicon-log-out{
+    font-size: 25px;
+}
+.glyphicon-user{
+    font-size: 25px;
+}
+.glyphicon-shopping-cart{
+    font-size: 25px;
+}
+.glyphicon-home{
+    font-size: 25px;
+}
+
+.glyphicon-edit{
+    font-size: 25px;
+}
+
+.glyphicon-log-in{
+    font-size: 25px;
+}
+
+.navbar-brand {
+    text-align: center;
+    font-size: 40px;
+    padding-left: 50px;
+}
+
+.navbar-default{
+    padding: 0px 0px 0px 0px;
+}
+
+.navbar-form{
+    margin: 12.5px 0px 12.5px 0px;
+}
+
+ .log-in-form{
+    padding: 10px;
+    width:  400px;
+    border: 1px solid #333333;
+    margin: auto;
+    text-align: center;
+}
+
+.log-in-slice {
+    margin: 130px 0 130px 0;
+}
+
+
+.log-in-field{
+    margin: 30px 0 30px 0;
+}
+.btn-log-in{
+    width: 40%;
+}
+.btn-edit{
+    font-size: 20px;
+    margin: 20px 15px 0 15px;
+}
+
+.footer{
+    width: 100%;
+  height: 0px;
+  text-align: center;
+
+}
+
+.panel-footer{
+    font-size: 20px;
+    color: #777777;
+    margin: 30px 0px -21px 0px;
+    padding: 30px 15px;
+    border: 1px solid #ddd;
+}
+.panel-default{
+    border-color: #ffffff
+}
+
+.footer{
+    text-align: right;
 }
