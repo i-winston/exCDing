@@ -3,6 +3,7 @@
 	<h2>ショッピングカート</h2>
 	<div class="row">
 		<div class="col-lg-8 ">
+			<% @carts.each do |cart| %>
 			<div class="product-cart">
 				<table>
 					<tbody>
@@ -10,13 +11,13 @@
 							<td class="product-cart-index">ジャケット</td>
 							<td class="product-cart-index">　　　</td>
 							<td class="product-cart-index">
-								<p>teitle:</p>
-								<p>ジャンル：</p>
-								<p>レーベル：</p>
+								<p>teitle:<%= cart.product.product_name %></p>
+								<p>ジャンル：<%= cart.product.disk.id.disks.song.id.songs.genre.genre_name %></p>
+								<p>レーベル：<%= cart.product.label.label_name %></p>
 								<p>在庫あり</p>
 							</td>
 							<td class="product-cart-index"></td>
-							<td class="product-cart-index">￥540</td>
+							<td class="product-cart-index"></td>
 							<td class="product-cart-index"></td>
 							<td class="product-cart-index"　colspan="2">
 								<p><input type="number" name="quantity1"></p>
@@ -26,7 +27,8 @@
 						</tr>
 					</tbody>
 				</table>
-			</div>	
+			</div>
+			<% end %>	
 			<div class="row" style="padding-left: 15px;">
 				<div>
 					<table>
