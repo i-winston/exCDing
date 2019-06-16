@@ -1,4 +1,6 @@
 class EndusersController < ApplicationController
+	protect_from_forgery
+
   def edit
     @enduser = Enduser.find(params[:id])
   end
@@ -16,11 +18,11 @@ class EndusersController < ApplicationController
   def update
     @enduser = Enduser.find(params[:id])
     if
-      @enduser.update(enduser_params)
-      redirect_to enduser_path(@enduser.id)
-    else
-      render action: "edit"
-    end
+	    @enduser.update(enduser_params)
+	    redirect_to enduser_path(@enduser.id) , notice: "プロフィールを変更しました"
+	else
+		render action: "edit"
+	end
   end
 
 
