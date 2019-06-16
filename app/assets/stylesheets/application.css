@@ -40,11 +40,18 @@
     margin-bottom: 30px;
 }
 
-
+.user-info-form {
+    margin-top: 60px;
+}
 .form-user.style-1 {
   color: black;
   border: 1px solid black;
   padding: 50px;
+}
+.form-user.style-2{
+    color: black;
+  border: 1px solid black;
+  padding: 30px 3px 50px 3px;
 }
 .container {
     padding-left: 20px
@@ -92,6 +99,12 @@
     margin: auto;
     text-align: center;
 }
+
+.log-in-slice {
+    margin: 130px 0 130px 0;
+}
+
+
 .log-in-field{
     margin: 30px 0 30px 0;
 }

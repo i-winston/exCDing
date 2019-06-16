@@ -1,2 +1,46 @@
-<h1>Endusers#show</h1>
-<p>Find me in app/views/endusers/show.html.erb</p>
+<%= render  "endusers/header" %>
+<dib class=body>
+	<div class=container>
+		<div class ="col-lg-3 col-md-3 user-info-form ">
+			<div class = "row" >
+				<div class="form-user style-2">
+					<h2 style="text-align: center;">会員情報</h2>
+					<table class="table" >
+						<tbody>
+							<tr>
+								<th>Name</th>
+								<th><%= "#{current_enduser.family_name}" + "#{current_enduser.first_name}" %></th>
+							</tr>
+							<tr>
+								<th>住所</th>
+								<th><%= "#{current_enduser.registration_address}" %></th>
+							</tr>
+							<tr>
+								<th>郵便番号</th>
+								<th><%= "#{current_enduser.registration_postal_code}" %></th>
+							</tr>
+							<tr>
+								<th>電話番号</th>
+								<th><%= "#{current_enduser.phone_number}" %></th>
+							</tr>
+							<tr>
+								<th>メールアドレス</th>
+								<th><%= "#{current_enduser.email}" %></th>
+							</tr>
+						</tbody>
+					</table>
+            		<%= link_to edit_enduser_path(current_enduser.id) , class: "col-xs-12 btn btn-warning glyphicon glyphicon-wrench edit_enduser_#{}" do %>
+          			<% end %>
+				</div>
+			</div>
+		</div>
+
+		<div class ="col-lg-9 col-md-9">
+			<h2>購入履歴</h2>
+			<div class="row">
+			</div>
+		</div>
+	</div>
+</dib>
+
+
