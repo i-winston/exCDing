@@ -5,7 +5,7 @@
 				<table>
 					<thead>
 						<tr>
-							<th style="width: 50%; padding-left: 10px">ID</th>
+							<th style="width: 40%; padding-left: 10px">ID</th>
 							<th>名</th>
 							<th style="width: 39%;">前</th>
 							<th>編集</th>
@@ -14,13 +14,15 @@
 					</thead>
 					<div class="row">
 					<tbody>
-						<% @endusers.each do |enduser| %>
+						<% @endusers.each do |user| %>
 						<tr>
-							<td style="width: 50%; padding-left: 10px"><%= enduser.id %></td>
-							<td><%= enduser.first_name %></td>
-							<td style="width: 39%;"><%= enduser.family_name %></td>
+							<td style="width: 40%; padding-left: 10px"><%= user.id %></td>
+							<td><%= user.first_name %></td>
+							<td style="width: 39%;"><%= user.family_name %></td>
 							<td><%= link_to "Edit", admins_endusers_path %></td>	
-							<td><%= link_to "Dlete", admins_endusers_path, method: :delete, data:{confirm: '削除しますか？'} %></td>
+							<td>
+								 <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+							</td>
 						</tr>
 						<% end %>
 					</tbody>
