@@ -4,7 +4,6 @@
       <table id="select" class="table table-hover">
           <% @products.each do |product| %>
             <th>
-              <div><%= attachment_image_tag product, :jacket, size: "300x300" %></div>
               <div><%= link_to product.product_name, product_path(product.id) %></div>
               <div><%= product.disks.first.songs.first.artist.artist_name %></div>
               <div>￥<%= product.price %></div>
