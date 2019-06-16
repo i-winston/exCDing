@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show,]
   resources :product_carts , only: [:index, :create, :destroy]  
   resources :orders , only: [:new, :create, :destroy]
-  resources :contact , only: [:new, :create]  
+  resources :contacts , only: [:new, :create]  
   resources :artists, only: [:index, :create, :destroy]
   resources :labels, only: [:index, :create, :destroy]
   resources :genres, only: [:index, :create, :destroy]
