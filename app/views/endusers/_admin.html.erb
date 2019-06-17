@@ -48,18 +48,22 @@
           <li><%= link_to "",destroy_admin_session_path, class: "glyphicon glyphicon-log-out logout", method: :delete %></li>
           </ul>
 
-        <dt class="dt"><%= f.search_field :product_name_or_product_status_or_price_cont ,placeholder: '検索するテキストを入力...', class: 'form-control' %></dt>
+          <dl class="navbar-form navbar-right">
+
+          <%= search_form_for @search, url: root_path do |f| %>
+
+          <dt class="dt"><%= f.search_field :product_name_or_product_status_or_price_cont ,placeholder: '検索するテキストを入力...', class: 'form-control' %></dt>
           <button type="submit" class="btn btn-default">検索</button>
+         <% end %>
+        </dl>
+
 
           </form>
-          <% end %>
 
 
          <% end %>
         </dl>
->
           </div>
           </div>
           </nav>
 </header>
-<div class="block"></div>

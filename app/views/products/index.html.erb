@@ -2,7 +2,7 @@
 <h2>商品一覧</h2>
     <div class="table-responsive">
       <table id="select" class="table table-hover">
-          <% @products.each do |product| %>
+          <% @search_products.each do |product| %>
             <th>
               <%= attachment_image_tag product, :jacket, size: "300x300" %>
               <div><%= link_to product.product_name, product_path(product.id) %></div>
