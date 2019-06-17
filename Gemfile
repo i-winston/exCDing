@@ -70,8 +70,6 @@ gem "refile-mini_magick"
 
 gem 'kaminari', '~> 0.17.0'
 
-gem 'search_cop'
-
 gem 'paranoia'
 
 gem "jquery-rails"
@@ -83,3 +81,5 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'cocoon'
 
 gem 'rubocop'
+
+gem 'ransack'

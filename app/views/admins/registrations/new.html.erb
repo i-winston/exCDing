@@ -1,29 +1,53 @@
-<h2>Sign up</h2>
+<%= render "endusers/admin" %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<section class="slice slice-lg sct-color-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 " >
+              <div class="form-user style-1">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+                  <div class="form-header text-center">
+                     <h2 class="form-header-title">管理者</h2>
+                  </div>
+                  <div class="form-body">
+                      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                        <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+                        <div class="form-group">
+                            <div class="field">
+                              <%= f.label :メールアドレス %><br />
+                              <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control" , placeholder:"メールアドレス"%>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="field">
+                              <%= f.label :パスワード %>
+                              <% if @minimum_password_length %>
+                              <font size="1"> *6文字以上</font>
+                              <% end %><br />
+                              <%= f.password_field :password, autocomplete: "off",class:"form-control" , id:"password" , placeholder:"パスワード"%>
+                            </div>
+                        </div>
+                        <div class="form-group ">
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+                              <%= f.label :パスワード確認 %><br />
+                              <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", id:"inputConfirmPassword", placeholder:"パスワード確認" %>
+                            </div>
+                        </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+                        <div class="actions">
+                          <div style="padding: 6px, 12px; font-size: 20px; margin: 20px 15px 0 15px; ">
+                            <%= f.submit "登録" , class: "btn btn-block btn-warning"  %>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+                      <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-<%= render "admins/shared/links" %>

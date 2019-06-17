@@ -1,5 +1,5 @@
 <%= render  "endusers/header" %>
-<dib class=body>
+<body>
 	<div class=container>
 		<div class ="col-lg-3 col-md-3 user-info-form ">
 			<div class = "row" >
@@ -35,12 +35,29 @@
 			</div>
 		</div>
 
-		<div class ="col-lg-9 col-md-9">
-			<h2>購入履歴</h2>
+
+		<div class ="col-lg-8 col-md-8 col-md-offset-1 col-lg-offset-1">
+
 			<div class="row">
+			  <ul id="tab-menu" class="clearfix" style="margin-bottom: 0;">
+		        <li><a href="#tab1" class="active fa fa-history" style="font-size: 30px;"></a></li>
+		        <li><a href="#tab2" class="fa fa-heart"  style="font-size: 30px;"></a></li>
+		      </ul>
+
+		      <div id="tab-contents" class="clearfix">
+		        <div id="tab1" class="tab">
+		          <p>TAB1のテキストが入ります。TAB1のテキストが入ります。TAB1のテキストが入ります。TAB1のテキストが入ります。</p>
+		        </div>
+		        <div id="tab2" class="tab">
+		          <p>TAB2のテキストが入ります。TAB2のテキストが入ります。TAB2のテキストが入ります。TAB2のテキストが入ります。</p>
+		        </div>
+		      </div>
+
 			</div>
 		</div>
+		</div>
 	</div>
-</dib>
+
+</body>
 
 

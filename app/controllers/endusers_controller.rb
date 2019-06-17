@@ -10,6 +10,10 @@ class EndusersController < ApplicationController
   def show
   end
 
+  def show_favorite
+  	
+  end
+
   def index
   end
 

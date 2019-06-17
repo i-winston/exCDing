@@ -1,4 +1,5 @@
 class Admins::ProductsController < ApplicationController
+  before_action :authenticate_admin!
   def new
     @product = Product.new
     @disk = @product.disks.build
@@ -21,6 +22,8 @@ class Admins::ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @disks = @product.disks
+    @price = (@product.price * 1.08).floor
   end
 
   def update
