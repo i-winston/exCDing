@@ -13,10 +13,11 @@ class EndusersController < ApplicationController
   def like(product)
     favorites.find_or_create_by(product_id: product.id)
   end
+
   def unlike(product)
-   favorite = favorites.find_by(product_id: product.id)
-   favorite.destroy if favorite
- end
+    favorite = favorites.find_by(product_id: product.id)
+    favorite.destroy if favorite
+  end
 
   def index
   end

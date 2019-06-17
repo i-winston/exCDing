@@ -5,9 +5,7 @@ class Product < ApplicationRecord
   has_many :disks, inverse_of: :product
 
   has_many :songs, through: :disks
-  has_many :enduser,through: :favorites
-
-
+  has_many :enduser, through: :favorites
 
   accepts_nested_attributes_for :disks, reject_if: :all_blank, allow_destroy: true
   belongs_to :label
@@ -15,6 +13,6 @@ class Product < ApplicationRecord
   attachment :jacket
 
   def favorited_by?(enduser)
-          favorites.where(enduser_id: enduser.id).exists?
+    favorites.where(enduser_id: enduser.id).exists?
   end
 end

@@ -26,9 +26,7 @@ class ApplicationController < ActionController::Base
     admins_home_path
   end
 
-
-   def after_admin_sign_in_path_for(_resoursce)
-
+  def after_admin_sign_in_path_for(_resoursce)
     admins_home_path
   end
 end
