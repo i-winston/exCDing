@@ -4,6 +4,8 @@ class Enduser < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :product_carts, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :products, through: :favorites
   validates :first_name, presence: true
   validates :first_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
   validates :family_name, presence: true
