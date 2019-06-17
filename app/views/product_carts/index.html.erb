@@ -22,7 +22,7 @@
 								<p><%= cart.product.label.label_name %></p>
 								<p>有</p>
 							</td>
-							<td class="product-cart-index"><%= cart.product.price%>円</td>
+							<td class="product-cart-index"><%= cart.product.price %>円</td>
 							<td class="product-cart-index"></td>
 							<td class="product-cart-index"　colspan="2">
 								<%= form_for(cart) do |f| %>
@@ -52,23 +52,24 @@
 			<div class="col-lg-3 col-lg-offset-1">
 			  <div class="product-cart">
 			  	<div class="row">	
-				<div class="col-lg-4 col-lg-offset-4">
-					<table>
-						<tbody>
-							<tr>
-								<td class="product-cart-index">
-									<p><span>小計</span>○○円</p>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
+					<div class="col-lg-4 col-lg-offset-4">
+						<table>
+							<tbody>
+								<tr>
+									<td class="product-cart-index">
+										<p><span>小計</span>○○円</p>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
 
 				<div class="row">
-				<div>
-					<div class="col-lg-12">
-						<p class="btn btn-success col-xs-12">購入画面へ進む</p>
+					<div>
+						<div class="col-lg-12">
+							<p class="btn btn-success col-xs-12">購入画面へ進む</p>
+						</div>
 					</div>
 				</div>
 			  </div>		  
