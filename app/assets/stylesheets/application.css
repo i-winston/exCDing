@@ -161,7 +161,7 @@
   list-style-type: none;
   width: 50%;
 }
- 
+
 #tab-menu a {
   color: #fff;
   text-decoration: none;
@@ -171,9 +171,9 @@
   background: #000;
   border: 1px solid #000;
   border-bottom: none;
-  
+
 }
- 
+
 #tab-menu .active {
   background: #fff;
   color: #000;
@@ -183,8 +183,7 @@
   background: #fff;
   border: 1px solid #000;
   border-top: none;
-}
- 
+
 #tab-contents p{
   color:#000;
   line-height: 2.5;
