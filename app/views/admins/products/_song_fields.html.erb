@@ -6,7 +6,7 @@
 
     <div class="field">
     	<%= f.label :number, "トラックNo：" %>
-    	<%= f.text_field :number, placeholder: "新規登録するトラック番号を入力" %>
+    	<%= f.number_field :number, min:1, step:1, placeholder: "新規登録するトラック番号を入力" %>
 	</div>
 
     <div class="field">

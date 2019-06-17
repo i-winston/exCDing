@@ -6,24 +6,20 @@
       	<%= attachment_image_tag @product, :jacket, size: "300x300" %>
       </div>
       <div class="col-md-6">
-        <div class="product-title"><%= @product.product_name %></div><br>
+        <label>商品名：<%= @product.product_name %></label>
         <p><div class="product-artist">アーティスト：<%= @product.disks.first.songs.first.artist.artist_name %></div></p>
         <p>レーベル：<%= @product.label.label_name %></p>
         <p>ジャンル：<%= @product.disks.first.songs.first.genre.genre_name %></p>
         <p>価格(税込)：￥<%= @price %>円</p>
-        <th>在庫：</th>
-        <% if @product.product_stock == 0 %>
-          <th>無</th>
-        <% else %>
-          <th>有</th>
-        <% end %>
+        <p>在庫数：<%= @product.product_stock %>個</p>
+        <p>ステータス：<%= @product.product_status %></p>
 
          <h4>収録曲</h4>
           <% @disks.each do |disk| %>
             <p><label>ディスク名：</label><%= disk.disk_name %></p>
             <ul class="song-list">
               <% disk.songs.each do |song| %>
-                <li><%= song.number %>.<%= song.song_name %></li>
+                <p>No<%= song.number %>．<%= song.song_name %></p>
               <% end %>
             </ul>
           <% end %>
