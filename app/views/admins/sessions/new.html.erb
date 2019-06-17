@@ -1,4 +1,5 @@
 <%= render "endusers/admin" %>
+
 <section class="slice slice-lg sct-color-1 log-in-slice">
 <div class ="container">
   <div class="form-group row ">
@@ -20,6 +21,7 @@
                     <%= link_to "パスワードをお忘れですか?", new_password_path(resource_name) %><br />
                   <% end %>
                 </div>
+
 
                   <% if devise_mapping.rememberable? %>
                     <div class="field" >
