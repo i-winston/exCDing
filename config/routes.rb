@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   root 'products#index'
   resources :endusers , only: [:edit, :show, :update, :destroy] 
   resources :products, only: [:index, :show,]
-  resources :product_carts , only: [:index, :create, :destroy]  
+  resources :product_carts , only: [:index, :create, :destroy, :update]  
   resources :orders , only: [:new, :create, :destroy]
   resources :contacts , only: [:new, :create]  
   resources :artists, only: [:index, :create, :destroy]
@@ -28,6 +28,5 @@ Rails.application.routes.draw do
   resources :contacts , only: [:index, :show, :create] 
   resources :homes , only: [:index] 
   end
-
 end
 
