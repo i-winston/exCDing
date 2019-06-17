@@ -11,9 +11,8 @@ class Admins::EndusersController < ApplicationController
   	@enduser = Enduser.find(params[:id])
   end
   def update
-  	enduser = Enduser.find(params[:id])
-    if
-      @enduser.update(@enduser_params)
+  	@enduser = Enduser.find(params[:id])
+    if@enduser.update(enduser_params)
       redirect_to admins_endusers_path
     else
       render action: "edit"
