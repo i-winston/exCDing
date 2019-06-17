@@ -1,4 +1,4 @@
 class Favorite < ApplicationRecord
   belongs_to :enduser
-  belongs_to :favorite
+  belongs_to :product
 end

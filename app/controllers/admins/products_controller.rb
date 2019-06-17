@@ -37,8 +37,8 @@ class Admins::ProductsController < ApplicationController
   end
 
   def destroy
-    @product = Product.find(params[:id])
-    @product.destroy
+    product = Product.find(params[:id])
+    product.destroy
     flash[:info] = "商品を削除しました。"
     redirect_to admins_products_path
   end
