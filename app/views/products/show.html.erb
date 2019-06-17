@@ -6,11 +6,11 @@
         <%= attachment_image_tag @product, :jacket, size: "300x300" %>
       </div>
       <div class="col-md-6">
-        <div class="product-title"><%= @product.product_name %></div><br>
-        <p><div class="product-artist">アーティスト｜<%= @product.disks.first.songs.first.artist.artist_name %></div></p>
-        <p>レーベル｜<%= @product.label.label_name %></p>
-        <p>ジャンル｜<%= @product.disks.first.songs.first.genre.genre_name %></p>
-        <p>価格(税込)|￥<%= @price %></p>
+        <div class="product-title">商品名：<%= @product.product_name %></div><br>
+        <p><div class="product-artist">アーティスト：<%= @product.disks.first.songs.first.artist.artist_name %></div></p>
+        <p>レーベル：<%= @product.label.label_name %></p>
+        <p>ジャンル：<%= @product.disks.first.songs.first.genre.genre_name %></p>
+        <p>価格(税込)：￥<%= @price %>円</p>
         <th>在庫：</th>
         <% if @product.product_stock == 0 %>
           <th>無</th>
