@@ -3,7 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .product-cart{
 	border: 2px solid #8C8C00;
+	margin-bottom: 10px;
 }
 .product-cart-index {
 	width: 20%;
+}
+.a {
+	position: fixed;
+	right: -795px;
+	width: 100%;
 }
