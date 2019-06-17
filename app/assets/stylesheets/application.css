@@ -138,6 +138,9 @@
 .footer{
     text-align: right;
 }
+.panel-footer{
+    margin: 30px -500px -21px -500px;
+}
 
 .form{
     margin: 100px 300px 100px 300px ;
@@ -145,4 +148,14 @@
 }
 .dt{
     display: inline-block;
+}
+.site_header{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 24px;
+}
+.block{
+    padding-top: 100px;
 }
