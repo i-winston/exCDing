@@ -20,11 +20,14 @@ class ApplicationController < ActionController::Base
   def after_enduser_sign_in_path_for(_resoursce)
     products_path
   end
+
   def after_admin_sign_up_path_for(_resoursce)
     admins_home_path
   end
 
+
    def after_admin_sign_in_path_for(_resoursce)
+
     admins_home_path
   end
 end

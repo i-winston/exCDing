@@ -1,4 +1,4 @@
-<%= render "endusers" %>
+<%= render "endusers/admin" %>
 
 <section class="slice slice-lg sct-color-1">
     <div class="container">
@@ -10,7 +10,7 @@
                      <h2>会員情報編集</h2>
                   </div>
                   <div class="form-body">
-                      <%= form_for(@enduser) do |f| %>
+                      <%= form_for(@enduser , url:{controler: "endusers", action: "update"}) do |f| %>
                         <%= render "devise/shared/error_messages", resource: resource %>
 
                       <div class="col-lg-5 col-md-5">
@@ -79,7 +79,7 @@
 
                         <div class="actions">
                           <div style="padding: 6px, 12px; font-size: 20px; margin: 20px 15px 0 15px; ">
-                            <%= button_to "変更を保存" , {controller: "endusers",action: "update"} , {class: "btn btn-block btn-warning "  %>
+                            <%= f.submit "変更を保存" , class: "btn btn-block btn-warning "  %>
                           </div>
                         </div>
                       </div>
