@@ -16,7 +16,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @products.each do |product| %>
+          <% @search_products.each do |product| %>
             <tr>
               <td><%= attachment_image_tag product, :jacket, size: "30x30" %></td>
               <td><%= link_to product.product_name, admins_product_path(product.id) %></td>
