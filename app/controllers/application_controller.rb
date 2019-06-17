@@ -13,11 +13,19 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :family_name, :first_name_kana, :family_name_kana, :phone_number, :registration_address, :registration_postal_code])
   end
 
-  def after_sign_up_path_for(resoursce)
+  def after__enduser_sign_up_path_for(resoursce)
     products_path
   end
 
-  def after_sign_in_path_for(_resoursce)
+  def after_enduser_sign_in_path_for(_resoursce)
     products_path
+  end
+
+  def after_admin_sign_up_path_for(_resoursce)
+    admins_home_path
+  end
+
+  def after_admin_sign_in_path_for(_resoursce)
+    admins_home_path
   end
 end
