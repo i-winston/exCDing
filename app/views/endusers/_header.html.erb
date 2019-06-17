@@ -34,13 +34,15 @@
           <li ><%= link_to "#{current_enduser.family_name}" + "#{current_enduser.first_name}",enduser_path(current_enduser) %>
           </li>
         </ul>
+        <dl class="navbar-form navbar-right">
 
-        <form class="navbar-form navbar-right" role="search">
-          <div class="form-group">
-          <input type="text" class="form-control" placeholder="検索キーワード">
-          </div>
+          <%= search_form_for @search, url: root_path do |f| %>
+
+          <dt class="dt"><%= f.text_field :product_name_cont ,placeholder: '検索するテキストを入力...', class: 'form-control' %></dt>
           <button type="submit" class="btn btn-default">検索</button>
-          </form>
+         <% end %>
+        </dl>
+        </div>
 
           </div>
           </div>

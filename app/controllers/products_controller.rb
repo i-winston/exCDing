@@ -18,6 +18,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @cart = ProductCart.new
     @disks = @product.disks
     @price = (@product.price * 1.08).floor
   end
