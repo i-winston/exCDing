@@ -2,7 +2,7 @@
 <div class="container">
 	<h2>ショッピングカート</h2>
 	<div class="row">
-		<div class="col-lg-8 ">
+		<div class="col-lg-8 col-md-8 ">
 			<% @carts.each do |cart| %>
 			<div class="product-cart">
 				<table>
@@ -22,11 +22,11 @@
 								<p><%= cart.product.label.label_name %></p>
 								<p>有</p>
 							</td>
-							<td class="product-cart-index"><%= cart.product.price %>円</td>
+							<td class="product-cart-index"><%= cart.product_count * cart.product.price %>円</td>
 							<td class="product-cart-index"></td>
 							<td class="product-cart-index"　colspan="2">
 								<%= form_for(cart) do |f| %>
-								<p><%= f.number_field :product_count,start:cart.product_count, min:1,max:100, step:1 %>個</p>
+								<p><%= f.number_field :product_count,start:cart.product_count, min:1,max:cart.product.product_stock, step:1 %>個</p>
 								<%= f.submit "数量変更" %>
 								<% end %>
 								<p><%= link_to "削除", product_cart_path(cart.id), method: :delete, data:{confirm: '削除しますか？'} %></p>
@@ -49,7 +49,7 @@
 			</div>
 		</div>
 		<div class="a">
-			<div class="col-lg-3 col-lg-offset-1">
+			<div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 ">
 			  <div class="product-cart">
 			  	<div class="row">	
 					<div class="col-lg-4 col-lg-offset-4">
