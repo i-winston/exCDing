@@ -1,7 +1,6 @@
 class ProductCartsController < ApplicationController
- 
   def index
-  	@carts = ProductCart.where(enduser_id: current_enduser.id)
+    @carts = ProductCart.where(enduser_id: current_enduser.id)
   end
 
   def create
@@ -44,10 +43,6 @@ class ProductCartsController < ApplicationController
   
   end
 
-  def price
-
-  end
-
   def destroy
     cart = ProductCart.find(params[:id])
     cart.destroy
@@ -55,9 +50,9 @@ class ProductCartsController < ApplicationController
   end
 
   def update
-  	cart = ProductCart.find(params[:id])
-  	cart.update(product_cart_params)
-  	redirect_to product_carts_path
+    cart = ProductCart.find(params[:id])
+    cart.update(product_cart_params)
+    redirect_to product_carts_path
   end
 
   private
@@ -66,5 +61,3 @@ class ProductCartsController < ApplicationController
     params.require(:product_cart).permit(:enduser_id, :product_id, :product_count)
   end
 end
-
-  
