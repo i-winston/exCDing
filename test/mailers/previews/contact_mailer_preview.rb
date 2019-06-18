@@ -1,8 +1,8 @@
 # Preview all emails at http://localhost:3000/rails/mailers/contact_mailer
 class ContactMailerPreview < ActionMailer::Preview
   def contact
-     contact = Contact.new(name: "侍 太郎", contact_message: "問い合わせメッセージ")
+    contact = Contact.new(name: "侍 太郎", contact_message: "問い合わせメッセージ")
 
-     InquiryMailer.send_mail(contact)
+    InquiryMailer.send_mail(contact)
    end
 end
