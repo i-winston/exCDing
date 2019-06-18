@@ -6,7 +6,7 @@
 
           <div class="col-xs-4">
             <div class="field">
-              <%= f.label :jacket_id, "ジャケット画像" %>
+              <%= f.label :jacket, "ジャケット画像" %>
               <%= f.attachment_field :jacket, class: "col-xs-12 btn btn-default btn-sm" %>
             </div>
           </div>
@@ -26,7 +26,7 @@
             <div class="field">
               <%= f.label :disks, "ディスク" %>
               <%= f.fields_for :disks do |d| %>
-                <%= render 'disk_fields', :f => d %>
+                <%= render 'disk_fields', f: d %>
               <% end %>
 
               <div class="field">
