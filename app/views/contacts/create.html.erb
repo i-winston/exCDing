@@ -1,0 +1,20 @@
+
+<%= form_for @contact, :url => contacts_path do |f| %>
+  <table class="table">
+    <tr>
+      <th>名前</th>
+      <td>
+        <%= f.hidden_field :name %>
+        <%= @contact.name %>
+      </td>
+    </tr>
+    <tr>
+      <th>お問い合わせ内容</th>
+      <td>
+        <%= f.hidden_field :contact_message %>
+        <%= @contact.contact_message %>
+      </td>
+    </tr>
+  </table>
+  <%= f.submit '送信', :class => 'btn btn-primary' %>
+<% end %>
