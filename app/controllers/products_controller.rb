@@ -28,7 +28,11 @@ class ProductsController < ApplicationController
     #     if cart.product_id == @product.product_id
     #     count =  @product.product_count - cart.product_count
     #     @count = count
+
+    # end
+
         # end
+
     # end
     # end
   end
