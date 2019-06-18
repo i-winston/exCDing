@@ -83,3 +83,5 @@ gem 'cocoon'
 gem 'rubocop'
 
 gem 'ransack'
+
+gem "pry-rails"
