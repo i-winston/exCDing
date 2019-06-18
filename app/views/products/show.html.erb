@@ -49,7 +49,7 @@
 
         <div class=" col-md-6">
           <%= form_for(@cart, url: product_carts_path, method: 'Post') do |f| %>
-          <p><%= f.number_field :product_count, min:1,max:100, step:1 %>個</p>
+          <p><%= f.number_field :product_count, min:1,max:@product.product_stock, step:1 %>個</p>
           <%= f.hidden_field :product_id, value: @product.id %>
           <%= f.submit 'カート追加', class:"btn btn-default btn-lg btn-block" %>
           <% end %>
