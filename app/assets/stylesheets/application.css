@@ -19,6 +19,12 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 .btn-info {
     color: #000;
     background-color: rgb(218, 232, 252);
@@ -138,7 +144,8 @@
     border: 1px solid #ddd;
 }
 .panel-default{
-    border-color: #ffffff
+    border-color: #ffffff;
+    margin-bottom: 0;
 }
 
 .footer{
@@ -167,7 +174,7 @@ border-bottom: 3px solid black;
   border: 1px solid black;
   cursor: pointer;
   list-style: none;
-  transition: .3s;
+  transition: .1s;
 }
 
 .tab li.active{
