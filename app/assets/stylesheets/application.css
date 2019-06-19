@@ -204,3 +204,12 @@ border-bottom: 3px solid black;
 .block{
     padding-top: 100px;
 }
+
+.panel-default {
+  padding-left: -15px;
+  padding-right: -15px;
+}
+
+#panel-default .panel-heading{
+  margin: 0px -15px;
+}
