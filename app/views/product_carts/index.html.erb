@@ -9,7 +9,7 @@
 					<tbody>
 						<tr>
 							<td class="product-cart-index" style="padding-left: 5px;"><%= attachment_image_tag cart.product, :jacket, size: "115x115" %></td>
-							<td class="product-cart-index">　</td>
+							<td style="padding: 20px;"></td>
 							<td class="product-cart-index">
 								<p>Teitle：</p>
 								<p>ジャンル：</p>
@@ -23,52 +23,50 @@
 								<p>有</p>
 							</td>
 							<td class="product-cart-index"><%= cart.product_count * cart.product.price %>円</td>
-							<td class="product-cart-index"></td>
+							<td style="padding: 30px;"></td>
 							<td class="product-cart-index"　colspan="2">
 								<%= form_for(cart) do |f| %>
-								<p><%= f.number_field :product_count,start:cart.product_count, min:1,max:cart.product.product_stock, step:1 %>個</p>
-								<%= f.submit "数量変更" %>
+								<p style="text-align: left;"><%= f.number_field :product_count,start:cart.product_count, min:1,max:cart.product.product_stock, step:1 %>個<br><%= f.submit "数量変更" %></p>
 								<% end %>
-								<p><%= link_to "削除", product_cart_path(cart.id), method: :delete, data:{confirm: '削除しますか？'} %></p>
+								<p style="text-align: left;"><%= link_to "削除", product_cart_path(cart.id), method: :delete, data:{confirm: '削除しますか？'} %></p>
 							</td>
-							<td class="product-cart-index">　</td>
+							<td style="padding: 20px;"></td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 			<% end %>	
-			<div class="row" style="padding-left: 15px;">
-				<div>
+			<div class="row">
+				<div class="col-lg-12">
 					<table>
 						<tr>
-							<td><%= link_to '一覧画面へ',root_path, class: "btn btn-danger col-lg-10" %></td>
-							<td class="product-cart-index">小計</td>
+							<td class="product-cart-index"><%= link_to '一覧画面へ',root_path, class: "btn btn-danger col-lg-3" %></td>
 						</tr>
 					</table>
 				</div>
 			</div>
 		</div>
-		<div class="a">
+		<div class="slide-box">
 			<div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 ">
 			  <div class="product-cart">
 			  	<div class="row">	
-					<div class="col-lg-4 col-lg-offset-4">
-						<table>
-							<tbody>
-								<tr>
-									<td class="product-cart-index">
-										<p><span>小計</span>○○円</p>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+						<div class="col-lg-12">
+							<table>
+								<tbody>
+									<tr>
+										<td class="product-cart-index">
+											<p><span>小計</span><%= get_price(@carts) %>円(税抜き)</p>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 				</div>
 
 				<div class="row">
 					<div>
 						<div class="col-lg-12">
-							<p class="btn btn-success col-xs-12">購入画面へ進む</p>
+							<p><%= link_to '購入画面へ進む', new_order_path,class: "btn btn-success col-xs-12" %></p>
 						</div>
 					</div>
 				</div>
