@@ -14,4 +14,5 @@ class Product < ApplicationRecord
   def favorited_by?(enduser)
     favorites.where(enduser_id: enduser.id).exists?
   end
+
 end

@@ -17,7 +17,7 @@ class ProductCartsController < ApplicationController
   			count = product.product_count + @cart.product_count
   			product.update(product_count: count)
   			redirect_to product_carts_path
-          end 
+          end
   	   end
   else
 	   @cart.save
