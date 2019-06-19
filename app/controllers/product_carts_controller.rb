@@ -1,7 +1,6 @@
 class ProductCartsController < ApplicationController
   def index
     @carts = ProductCart.where(enduser_id: current_enduser.id)
-    
   end
 
   def create
@@ -12,6 +11,7 @@ class ProductCartsController < ApplicationController
     @cart.enduser_id = current_enduser.id
 
     if @product_ids.include?(@cart.product_id)
+
       @product.each do |product|
         if product.product_id == @cart.product_id
           count = product.product_count + @cart.product_count

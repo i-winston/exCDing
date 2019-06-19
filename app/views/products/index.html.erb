@@ -2,11 +2,19 @@
 <div id="wrapper">
 <div class="container">
   <div class = "row">
-  <h2>商品一覧</h2>
-    <div class = "col-lg-12">
-      
+
+    <h2>商品一覧</h2>
+      <label>いいね数ランキング</label>
+      <% @all_ranks.each.with_index(1) do |r, i| %>
+          <h4>
+            <%= "第#{i}位" %>
+              <%= r.product_name %>
+          </h4>
+      <% end %>
+      <div class = "col-lg-12">
+
         <% @search_products.each do |product| %>
-          <div class = "col-lg-2 col-lg-offset-2 ">
+          <div class = "col-lg-2 col-lg-offset-2">
             <th>
               <div>
                 <%= link_to product_path(product.id) do %>
@@ -25,4 +33,4 @@
     </div>
   </div>
 </div>
-</div>
+
