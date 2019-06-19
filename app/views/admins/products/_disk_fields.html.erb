@@ -7,7 +7,7 @@
 
   <div id="songs">
     <%= f.fields_for :songs do |s| %>
-      <%= render 'song_fields', :f => s %>
+      <%= render 'song_fields', f: s %>
     <% end %>
   </div>
 

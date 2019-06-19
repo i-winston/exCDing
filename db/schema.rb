@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_06_19_062406) do
 
+
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -96,6 +97,12 @@ ActiveRecord::Schema.define(version: 2019_06_19_062406) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "lebels", force: :cascade do |t|
+    t.string "label_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "order_details", force: :cascade do |t|
     t.integer "order_id"
     t.integer "prodact_id"
@@ -103,6 +110,7 @@ ActiveRecord::Schema.define(version: 2019_06_19_062406) do
     t.integer "purchase_qty"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "product_id"
   end
 
   create_table "orders", force: :cascade do |t|

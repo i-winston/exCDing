@@ -9,7 +9,7 @@ class Product < ApplicationRecord
 
   accepts_nested_attributes_for :disks, reject_if: :all_blank, allow_destroy: true
   belongs_to :label
-  belongs_to :enduser
+
   attachment :jacket
 
   def favorited_by?(enduser)
