@@ -17,12 +17,12 @@ class ProductCartsController < ApplicationController
           count = product.product_count + @cart.product_count
           product.update(product_count: count)
           redirect_to product_carts_path
-          end
+        end
       end
     else
       @cart.save
       redirect_to product_carts_path
-  end
+    end
 
     # find_or_create_by rails
 

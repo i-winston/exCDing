@@ -8,13 +8,13 @@ module ApplicationHelper
   end
 
   def get_price(c)
-  	total = 0
-  	c.each do |price|
-  		subtotal = price.product.price * price.product_count
-  		total += subtotal
- 	end
- 	return total
- end
+    total = 0
+    c.each do |price|
+      subtotal = price.product.price * price.product_count
+      total += subtotal
+    end
+    return total
+  end
 
   def get_price_tax(c)
     total = 0
@@ -23,10 +23,8 @@ module ApplicationHelper
     c.each do |price|
       subtotal = price.product.price * price.product_count
       total += subtotal
-
-  end
-  total_tax = (total + carriage)* tax
-  return total_tax.floor
-
+    end
+    total_tax = (total + carriage) * tax
+    return total_tax.floor
   end
 end

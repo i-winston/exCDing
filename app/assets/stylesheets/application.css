@@ -213,3 +213,19 @@ border-bottom: 3px solid black;
 #panel-default .panel-heading{
   margin: 0px -15px;
 }
+
+.image1 {
+background-image: url(test1.jpg);
+}
+.image2 {
+background-image: url(test2.jpg);
+}
+.image3 {
+background-image: url(test3.jpg);
+}
+.image4 {
+background-image: url(test4.jpg);
+}
+.image5 {
+background-image: url(test5.jpg);
+}
