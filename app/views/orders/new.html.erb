@@ -36,16 +36,16 @@
 								<tr>
 									<td>住所</td>
 									<td>
-										<%= f.select :ship_address, @users.all.map{|a| [a.address, a.id]} %>
+										<%= f.select :ship_address, @address %>
     								</td>
 								</tr>
 								<tr>
 									<td>郵便番号</td>
-									<td><%= f.select :ship_postal_code, @users.all.map{|a| [a.address, a.id]} %></td>
+									<td><%= f.select :ship_postal_code, @code %></td>
 								</tr>
 								<tr>
 									<td>宛名</td>
-									<td><%= f.select :ship_name, @users.all.map{|a| [a.address, a.name]} %></td>
+									<td><%= f.select :ship_name, @name %></td>
 								</tr>
 							</table>
 						</div>
