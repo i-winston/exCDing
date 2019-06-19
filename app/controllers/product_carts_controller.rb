@@ -1,6 +1,7 @@
 class ProductCartsController < ApplicationController
   def index
     @carts = ProductCart.where(enduser_id: current_enduser.id)
+    
   end
 
   def create

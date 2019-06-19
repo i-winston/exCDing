@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   resources :endusers , only: [:edit, :show, :update, :destroy] 
   resources :product_carts , only: [:index, :create, :destroy, :update]  
   resources :orders , only: [:new, :index, :create, :destroy]
+  resources :order_details , only: [:create, :destroy]
   resources :contacts , only: [:new, :create]  
+  resources :user_addresses
   resources :artists, only: [:index, :create, :destroy]
   resources :labels, only: [:index, :create, :destroy]
   resources :genres, only: [:index, :create, :destroy]
