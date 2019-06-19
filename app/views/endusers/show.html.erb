@@ -1,5 +1,6 @@
 <%= render  "endusers/header" %>
 <body>
+	<div id="wrapper">
 	<div class=container>
 		<div class ="col-lg-3 col-md-3 user-info-form ">
 			<div class = "row" >
@@ -39,25 +40,62 @@
 		<div class ="col-lg-8 col-md-8 col-md-offset-1 col-lg-offset-1">
 
 			<div class="row">
-			  <ul id="tab-menu" class="clearfix" style="margin-bottom: 0;">
-		        <li><a href="#tab1" class="active fa fa-history" style="font-size: 30px;"></a></li>
-		        <li><a href="#tab2" class="fa fa-heart"  style="font-size: 30px;"></a></li>
-		      </ul>
+				<ul class="tab clearfix" style= "margin-bottom: 0;">
 
-		      <div id="tab-contents" class="clearfix">
-		        <div id="tab1" class="tab">
+				    <li  class="active fa fa-history" style="font-size: 30px;"></li>
+				    <li  class="tab  fa fa-heart"  style="font-size: 30px; "></li>
+				</ul>
+
+
+		      <div class="area">
+		        <ul  class="show">
 		          <p>TAB1のテキストが入ります。TAB1のテキストが入ります。TAB1のテキストが入ります。TAB1のテキストが入ります。</p>
-		        </div>
-		        <div id="tab2" class="tab">
-		          <p>TAB2のテキストが入ります。TAB2のテキストが入ります。TAB2のテキストが入ります。TAB2のテキストが入ります。</p>
-		        </div>
+		        </ul>
+		        <ul>
+						<% @favorites.each do |f| %>
+						<div class="product-cart">
+							<table>
+								<tbody>
+									<tr>
+										<td class="product-cart-index" style="padding-left: 5px;">
+											<%= link_to product_path(f.product.id) do %>
+										        <%= attachment_image_tag f.product, :jacket, size: "140x140" %>
+										    <% end %></td>
+										<td class="product-cart-index">　</td>
+										<td class="product-cart-index">
+											<p>Teitle：</p>
+											<p>ジャンル：</p>
+											<p>レーベル：</p>
+											<p>アーティスト</p>
+										</td>
+										<td class="product-cart-index">
+											<label><%= link_to f.product.product_name, product_path(f.product.id) %></label>
+											<p><%= f.product.disks.first.songs.first.genre.genre_name %></p>
+											<p><%= f.product.label.label_name %></p>
+											<p><%= f.product.disks.first.songs.first.artist.artist_name%></p>
+										</td>
+										<td class="product-cart-index">
+											¥
+											<%= f.product.price %>
+											
+									           <p><i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+									            </p>
+									        
+										</td>
+										<td class="product-cart-index"></td>
+										<td class="product-cart-index">　</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<% end %>
+		        </ul>
 		      </div>
 
 			</div>
 		</div>
-		</div>
 	</div>
+</div>
 
 </body>
-
 

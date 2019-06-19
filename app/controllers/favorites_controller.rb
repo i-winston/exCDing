@@ -7,9 +7,11 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    product = Product.find(params[:product_id])
-    favorite = current_enduser.favorites.find_by(product_id: product.id)
-    favorite.destroy
-    redirect_to product_path(product)
+
+	    product = Product.find(params[:product_id])
+	    favorite = current_enduser.favorites.find_by(product_id: product.id)
+	    favorite.destroy
+	    redirect_to product_path(product)
+
   end
 end

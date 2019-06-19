@@ -8,6 +8,8 @@ class EndusersController < ApplicationController
   end
 
   def show
+    @favorites = Favorite.where(enduser_id: @current_enduser.id)
+    # @product = Product.find_by(id: favorites.product_id)
   end
 
   def like(product)
