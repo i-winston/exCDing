@@ -29,4 +29,11 @@ module ApplicationHelper
   return total_tax.floor
 
   end
+
+  def get_address(a,b,n) 
+    n = [current_enduser.a]
+    @users.map{|c| c.b}.each do |c|
+    n << c
+  end
+  end
 end
