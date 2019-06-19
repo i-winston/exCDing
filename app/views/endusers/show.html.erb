@@ -39,16 +39,18 @@
 		<div class ="col-lg-8 col-md-8 col-md-offset-1 col-lg-offset-1">
 
 			<div class="row">
-			  <ul id="tab-menu" class="clearfix" style="margin-bottom: 0;">
-		        <li><a href="#tab1" class="active fa fa-history" style="font-size: 30px;"></a></li>
-		        <li><a href="#tab2" class="fa fa-heart"  style="font-size: 30px;"></a></li>
-		      </ul>
+				<ul class="tab clearfix" style= "margin-bottom: 0;">
 
-		      <div id="tab-contents" class="clearfix">
-		        <div id="tab1" class="tab">
+				    <li  class="active fa fa-history" style="font-size: 30px;"></li>
+				    <li  class="tab  fa fa-heart"  style="font-size: 30px; "></li>
+				</ul>
+
+
+		      <div class="area">
+		        <ul  class="show">
 		          <p>TAB1のテキストが入ります。TAB1のテキストが入ります。TAB1のテキストが入ります。TAB1のテキストが入ります。</p>
-		        </div>
-		        <div id="tab2" class="tab">
+		        </ul>
+		        <ul>
 						<% @favorites.each do |f| %>
 						<div class="product-cart">
 							<table>
@@ -86,7 +88,7 @@
 							</table>
 						</div>
 						<% end %>
-		        </div>
+		        </ul>
 		      </div>
 
 			</div>
@@ -94,5 +96,4 @@
 	</div>
 
 </body>
-
 
