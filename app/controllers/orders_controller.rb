@@ -32,8 +32,17 @@ class OrdersController < ApplicationController
   end
 
   def create
+  	@carts = ProductCart.where(enduser_id: current_enduser.id)
 	@order = Order.new(order_params)
 	@order.enduser_id = current_enduser.id
+	@carts.each do |cart|
+		@order_details = @order.order_details.new
+		@order_details.product_id = cart.product.id
+		@order_details.purchase_qty = cart.product_count
+		@order_details.purchase_price = cart.product.price
+		@order_details.save
+		cart.destroy
+	end
     @order.save
     redirect_to orders_path
   end
@@ -42,6 +51,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-  	params.require(:order).permit(:enduser_id, :purchase_amount, :freight, :freight, :tax, :ship_name, :ship_postal_code, :ship_address, :payment, :order_status)
+  	params.require(:order).permit(:enduser_id,:product_id, :purchase_amount, :freight, :freight, :tax, :ship_name, :ship_postal_code, :ship_address, :payment, :order_status)
   end
 end
