@@ -16,16 +16,18 @@
 
   <div class = "row">
 
-    <h2>商品一覧</h2>
-      <label>いいね数ランキング</label>
-      <% @all_ranks.each.with_index(1) do |r, i| %>
-          <h4>
-            <%= "第#{i}位" %>
-              <%= link_to r.product_name , product_path(r.id) %>
-          </h4>
-      <% end %>
-      <div class = "col-lg-12">
-
+    <div class = "col-lg-2">
+      <h2>商品一覧</h2>
+        <label>いいね数ランキング</label>
+        <% @all_ranks.each.with_index(1) do |r, i| %>
+            <h4>
+              <%= "第#{i}位" %>
+                <%= link_to r.product_name , product_path(r.id) %>
+            </h4>
+        <% end %>
+    </div>
+      <div class = "col-lg-10">
+        <div class = "row">
         <% @search_products.each do |product| %>
           <div class = "col-lg-2 col-lg-offset-2">
             <th>
@@ -43,6 +45,7 @@
             </th>
           </div>
         <% end %>
+      </div>
     </div>
   </div>
 </div>
