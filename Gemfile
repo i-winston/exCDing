@@ -85,3 +85,5 @@ gem 'rubocop'
 gem 'ransack'
 
 gem "pry-rails"
+
+gem 'bxslider-rails'

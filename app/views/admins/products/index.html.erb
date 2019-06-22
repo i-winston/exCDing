@@ -18,7 +18,7 @@
         <tbody>
           <% @search_products.each do |product| %>
             <tr>
-              <td><%= attachment_image_tag product, :jacket, size: "30x30" %></td>
+              <td><%= attachment_image_tag product, :jacket, size: "30x30", fallback: "l_e_others_500.jpg"%></td>
               <td><%= link_to product.product_name, admins_product_path(product.id) %></td>
               <td>￥<%= product.price %>円</td>
               <td><%= product.product_stock %>個</td>
