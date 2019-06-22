@@ -1,14 +1,18 @@
 class OrdersController < ApplicationController
   def index
+  	@order = Order.where(enduser_id: current_enduser.id)
+  	@time = @order.last.created_at.strftime("%Y-%m-%d")
   end
 
   def new
+
   	@carts = ProductCart.where(enduser_id: current_enduser.id)
   	@order_price = view_context.get_price(@carts)
   	@total = @order_price.to_s(:delimited, delimiter: ',')
   	@carriage = 500.to_s(:delimited, delimiter: ',')
   	@order_price = view_context.get_price_tax(@carts)
   	@price = @order_price.to_s(:delimited, delimiter: ',')
+  	@tax = 1.08
 
   	@user = Order.new
   	@users = UserAddress.where(enduser_id: current_enduser.id)
@@ -20,15 +24,24 @@ class OrdersController < ApplicationController
     @users.map{|a| a.postal_code}.each do |a|
     @code << a
 	end
-    @name = [current_enduser.family_name]
+    @name = [current_enduser.family_name + current_enduser.first_name]
     @users.map{|a| a.user_name}.each do |a|
     @name << a
 	end
+
+  end
+
+  def create
+	@order = Order.new(order_params)
+	@order.enduser_id = current_enduser.id
+    @order.save
+    redirect_to orders_path
   end
 
 
   private
-  def method_name
-  	
+
+  def order_params
+  	params.require(:order).permit(:enduser_id, :purchase_amount, :freight, :freight, :tax, :ship_name, :ship_postal_code, :ship_address, :payment, :order_status)
   end
 end

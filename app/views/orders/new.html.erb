@@ -1,4 +1,5 @@
 <%= render "endusers/header" %>
+<%= form_for @user do |f| %>
 <div id="wrapper">
 <div class="containar">
 	<div class="row">
@@ -19,8 +20,12 @@
 									<td style="text-align: right;">　￥<%= @carriage %></td>
 								</tr>
 								<tr>
-									<td>総計(税込み)</td>
-									<td style="text-align: right;">　￥<%= @price %></td>
+									<td><strong>総計(税込み)</strong></td>
+									<td style="text-align: right;">　￥<%= @price %>
+										<%= f.hidden_field :purchase_amount, value: @price %>
+										<%= f.hidden_field :tax, value: @tax %>
+										<%= f.hidden_field :freight, value: @carriage %>
+									</td>
 								</tr>
 							</table>
 						</div>
@@ -30,26 +35,28 @@
 				<div class="row">
 					<div class="col-lg-offset-2">
 						<h3><strong>お届け先</strong></h3>
-						<%= form_for @user do |f| %>
+						
 						<div class="order-address">
 							<table>
+
+								<tr>
+									<td>郵便番号</td>
+									<td><%= f.select :ship_postal_code, @code %></td>
+								</tr>
 								<tr>
 									<td>住所</td>
 									<td>
 										<%= f.select :ship_address, @address %>
     								</td>
 								</tr>
-								<tr>
-									<td>郵便番号</td>
-									<td><%= f.select :ship_postal_code, @code %></td>
-								</tr>
+
 								<tr>
 									<td>宛名</td>
 									<td><%= f.select :ship_name, @name %></td>
 								</tr>
 							</table>
 						</div>
-						<% end %>
+						
 						<div><%= link_to '新規登録', new_user_address_path %></div>
 					</div>
 				</div>
@@ -60,13 +67,13 @@
 						<div class="cash-select">
 							<table>
 								<tr>
-									<td>銀行振込</td>
+									<td><%= f.radio_button :payment, "銀行振込" %>銀行振込</td>
 								</tr>
 								<tr>
-									<td>クレジットカード</td>
+									<td><%= f.radio_button :payment, "クレジット" %>クレジット</td>
 								</tr>
 								<tr>
-									<td>代引き</td>
+									<td><%= f.radio_button :payment, "代引き" %>代引き</td>
 								</tr>
 							</table>
 						</div>
@@ -75,7 +82,7 @@
 			</div>	
 			<div class="row">
 				<div class="col-lg-12">
-					<h3 style="text-align: center;"><%= link_to '注文を確定する',orders_path %></h3>
+					<h3 style="text-align: center;"><%= f.submit "注文を確定する" %></h3>
 				</div>
 			</div>
 				<div class="row">
@@ -87,3 +94,4 @@
 	</div>
 </div>
 </div>
+<% end %>

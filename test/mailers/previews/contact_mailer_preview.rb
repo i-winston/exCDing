@@ -3,10 +3,8 @@ class ContactMailerPreview < ActionMailer::Preview
   def contact
     contact = Contact.new(name: "侍 太郎", contact_message: "問い合わせメッセージ")
 
-
     InquiryMailer.send_mail(contact)
 
-     ContactMailer.send_mail(contact)
-
+    ContactMailer.send_mail(contact)
    end
 end

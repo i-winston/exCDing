@@ -17,3 +17,9 @@
 //= require jquery_ujs
 //= require cocoon
 //= require_tree .
+
+$(document).ready(function () {
+	$('.jquery').on('click', function(){
+		$(this).css('color','red');
+	});
+});
