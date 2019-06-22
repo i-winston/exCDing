@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
   $('.bxslider').bxSlider({
     auto: true,           // 自動スライド
     speed: 1000,          // スライドするスピード
@@ -19,5 +20,6 @@ $(document).ready(function(){
     slideMargin: 10,
     tickerHover: true,
     speed: 30000
+
   });
 });
