@@ -217,3 +217,15 @@ border-bottom: 3px solid black;
   margin: 0px -15px;
 }
 
+
+
+.newbox{
+  padding-top: 15px;
+  padding-bottom: 30px;
+  border: 3px solid black;
+}
+
+.contact{
+  padding: -15px -15px -30px -15px;
+}
+

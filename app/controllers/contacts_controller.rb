@@ -5,6 +5,7 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(contact_params)
+    @contact.enduser_id = current_enduser.id
     @contact.save
 
     ContactMailer.received_email(@contact).deliver
@@ -14,6 +15,6 @@ class ContactsController < ApplicationController
   private
 
   def contact_params
-    params.require(:contact).permit(:contact_message, :name)
+    params.require(:contact).permit(:contact_message, :name, :contact_title)
   end
 end

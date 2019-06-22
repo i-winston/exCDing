@@ -1,29 +1,49 @@
-    <%= form_for(@address) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
-
-      <div class="form-group">
+<%= render "endusers/header" %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="container">
+  <%= form_for(@address) do |f| %>
+    <div class="form-group">
+      <div class="field">
+        <%= f.label "宛名" %><br />
+        <%= f.text_field :user_name,
+         autofocus: true, class:"form-control " ,
+          id:"name", placeholder:"フルネーム" %>
+      </div>
+    </div>
+    <div class="form-group">
         <div class="field">
-          <%= f.label "氏名" %><br />
-          <%= f.text_field :user_name,
-           autofocus: true, class:"form-control " ,
-            id:"name", placeholder:"氏名" %>
+          <%= f.label :宛先  %><font size="1">*ハイフンあり</font><br />
+          <%= f.text_field :address, autofocus: true, autocomplete: "registration_address" ,class:"form-control", id:"address",placeholder:"住所" %>
         </div>
-      </div>
+    </div>
+    <div class="form-group">
+        <div class="field">
+          <%= f.label :郵便番号%><font size="1">*ハイフンあり/半角英数</font><br />
+          <%= f.text_field :postal_code, autofocus: true, autocomplete: "registration_postal_code",class:"form-control",id:"registration_postal_code", placeholder:"郵便番号/半角英数" %>
+        </div>
+    </div>
+    <%= f.submit "新規登録", class: "btn btn-success btn-sm" %>
+  <% end %>
 
-      <div class="form-group">
-          <div class="field">
-            <%= f.label :住所  %><font size="1">*ハイフンあり</font><br />
-            <%= f.text_field :address, autofocus: true, autocomplete: "registration_address" ,class:"form-control", id:"address",placeholder:"住所" %>
-          </div>
-      </div>
-      <div class="form-group">
-          <div class="field">
-            <%= f.label :郵便番号%><font size="1">*ハイフンあり/半角英数</font><br />
-            <%= f.text_field :postal_code, autofocus: true, autocomplete: "registration_postal_code",class:"form-control",id:"registration_postal_code", placeholder:"郵便番号/半角英数" %>
-          </div>
-      </div>
 
-      <%= f.submit "新規登録", class: "btn btn-success btn-sm" %>
+    <div class="row">
+      <div class="col-lg-6 col-lg-offset-4">
+        <table>
+          <thead>
+            <tr>
+              <th style="padding-right: 90px;">郵便番号</th>
+              <th style="padding-right: 90px;">登録住所</th>
+              <th style="padding-right: 90px;">宛名</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>  
+      </div>
+    </div>
 
-    
-    <% end %>
+</div>
+
