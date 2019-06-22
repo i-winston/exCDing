@@ -26,7 +26,7 @@
             <th>
               <div>
                 <%= link_to product_path(product.id) do %>
-                  <%= attachment_image_tag product, :jacket, size: "240x240" %>
+                  <%= attachment_image_tag product, :jacket, size: "240x240" , fallback: "l_e_others_500.jpg" %>
                 <% end %>
               </div>
               <div><%= link_to product.product_name, product_path(product.id) %>
@@ -51,4 +51,3 @@
     <div class="image5"></div>
   </div>
 </div>
-<h1 class="jquery">Hello jQuery!</h1>
