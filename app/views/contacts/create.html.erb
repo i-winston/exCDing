@@ -1,11 +1,15 @@
 <%= render "endusers/header" %>
 <div class="container">
   <div class="row">
-    <div class="panel panel-default col-md-6 col-md-offset-3">
+  	<div class="contact col-md-6 col-md-offset-3">
+      <div class="panel panel-default">
       <div class="panel-heading">名前</div>
       <div class="panel-body"><%= @contact.name %></div>
+      <div class="panel-heading">タイトル</div>
+      <div class="panel-body"><%= @contact.contact_title %></div>
       <div class="panel-heading">お問い合わせ内容</div>
       <div class="panel-body"><%= @contact.contact_message %></div>
+    </div>
     </div>
   </div>
 </div>

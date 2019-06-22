@@ -1,3 +1,29 @@
 <%= render "endusers/admin" %>
-<h1>Admins::Contacts#index</h1>
-<p>Find me in app/views/admins/contacts/index.html.erb</p>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+            <table class="table table-border">
+	            <thead>
+		            <tr>
+		            	<th></th>
+			            <th>名前</th>
+			            <th>title</th>
+			            <th>問い合わせ内容</th>
+			            <th>emailaddres</th>
+		            </tr>
+	            </thead>
+            <% @contact.each do |contact| %>
+                <tbody>
+	                <tr>
+	                	<th><%= check_box_tag :sample1 %></th>
+		                <th><%= contact.name %></th>
+		                <th><%= link_to contact.contact_title, admins_contact_path(contact.id) %></th>
+		                <th><%= contact.contact_message %></th>
+		                <th><%= contact.enduser.email %></th>
+	                </tr>
+                </tbody>
+            <% end %>
+            </table>
+        </div>
+    </div>
+</div>

@@ -2,7 +2,7 @@
 <%= render "endusers/header" %>
 <div class="container">
   <div class="row">
-    <div class="col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3 ">
+    <div class="newbox col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3 ">
 <%= form_for @contact, :url => contacts_path do |f| %>
 
 
@@ -10,14 +10,20 @@
 
       <h1>お問い合わせ</h1>
   </div>
-  <table class="table">
-    <tr>
-      <th>名前<span class="text-danger">（必須）</span></th>
-      <td><%= f.text_field :name %></td>
+  <div class="form-group">
+    <tr>名前<span class="text-danger">（必須）</span>
+      <div class="form-group"><%= f.text_field :name ,class:'form-control'%></div>
     </tr>
+  </div>
+  <div class="form-group">
+    <tr>
+      <th>タイトル</th>
+      <div class="form-group"><%= f.text_field :contact_title ,class:'form-control'%></div>
+    </tr>
+  </div>
     <tr>
       <th>お問い合わせ内容</th>
-      <td><%= f.text_area :contact_message %></td>
+      <div class="form-group"><%= f.text_area :contact_message,class:'form-control'%></div>
     </tr>
   </table>
   <%= f.submit '送信', class: 'btn btn-primary' %>
