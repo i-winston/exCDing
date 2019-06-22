@@ -11,6 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
+ *= require_tree ../../../app/assets/stylesheets/.
  *= require_self
  */
 
@@ -68,6 +69,8 @@
 .container {
     padding-left: 20px
 }
+
+
 
 .glyphicon-log-out{
     font-size: 25px;
@@ -214,18 +217,3 @@ border-bottom: 3px solid black;
   margin: 0px -15px;
 }
 
-.image1 {
-background-image: url(test1.jpg);
-}
-.image2 {
-background-image: url(test2.jpg);
-}
-.image3 {
-background-image: url(test3.jpg);
-}
-.image4 {
-background-image: url(test4.jpg);
-}
-.image5 {
-background-image: url(test5.jpg);
-}
