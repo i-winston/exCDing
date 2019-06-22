@@ -11,6 +11,12 @@ class UserAddressesController < ApplicationController
   	redirect_to new_order_path
   end
 
+  def destroy
+  	address = UserAddresses.find(params[:id])
+  	address.destroy
+  	redirect_to  new_contact_path
+  end
+
 private
 
   def user_address_params

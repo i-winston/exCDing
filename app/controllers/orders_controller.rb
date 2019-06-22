@@ -26,6 +26,7 @@ class OrdersController < ApplicationController
 	end
   end
 
+
   private
   def method_name
   	
