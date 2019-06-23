@@ -2,47 +2,49 @@
 <div id="wrapper">
 
   <div class="bg"></div>
-      <div class="bxslider1">
-        <div id="slider-wrapper">
-        <div id="slider-inner">
-          <ul class ="bxslider">
-            <% @products.each do |j| %>
-              <li>
-              <%= link_to product_path(j.id) do %>
-                  <%= attachment_image_tag j, :jacket, size: "500x500" , fallback: "l_e_others_500.jpg" %>
-              <% end %>
-              </li>
+
+  <div class="bxslider1">
+    <div id="slider-wrapper">
+      <div id="slider-inner">
+        <ul class ="bxslider">
+          <% @products.each do |j| %>
+            <li>
+            <%= link_to product_path(j.id) do %>
+                <%= attachment_image_tag j, :jacket, size: "500x500" , fallback: "l_e_others_500.jpg" %>
             <% end %>
-          </ul>
-        </div>
-        </div>
-          <ul class ="bxslider-2" style="width: 100%;">
-            <% @products.each do |j| %>
-              <li>
-              <%= link_to product_path(j.id) do %>
-                  <%= attachment_image_tag j, :jacket, size: "100x100" , fallback: "l_e_others_500.jpg" %>
-              <% end %>
-              </li>
-            <% end %>
-          </ul>
+            </li>
+          <% end %>
+        </ul>
       </div>
-  <div class="block"></div>
+    </div>
+    <ul class ="bxslider-2" style="width: 100%;">
+      <% @products.each do |j| %>
+        <li>
+        <%= link_to product_path(j.id) do %>
+            <%= attachment_image_tag j, :jacket, size: "100x100" , fallback: "l_e_others_500.jpg" %>
+        <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+<div class="block"></div>
 
 <div class="container">
   <div class = "row">
 
     <div class = "col-lg-2">
       <h2>商品一覧</h2>
-        <label>いいね数ランキング</label>
-        <% @all_ranks.each.with_index(1) do |r, i| %>
-            <h4>
-              <%= "第#{i}位" %>
-                <%= link_to r.product_name , product_path(r.id) %>
-            </h4>
-        <% end %>
+      <label>いいね数ランキング</label>
+      <% @all_ranks.each.with_index(1) do |r, i| %>
+        <h4>
+          <%= "第#{i}位" %>
+            <%= link_to r.product_name , product_path(r.id) %>
+        </h4>
+      <% end %>
     </div>
-      <div class = "col-lg-10">
-        <div class = "row">
+    <div class = "col-lg-10">
+      <div class = "row">
         <% @search_products.each do |product| %>
           <div class = "col-lg-2 col-lg-offset-2">
             <th>
