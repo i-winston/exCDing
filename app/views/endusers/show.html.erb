@@ -1,6 +1,7 @@
 <%= render  "endusers/header" %>
 <body>
 	<div id="wrapper">
+
 	<div class=container>
 		<div class ="col-lg-3 col-md-3 user-info-form ">
 			<div class = "row" >
@@ -36,7 +37,7 @@
 			</div>
 		</div>
 
-
+	<div class="turbolinks=false">
 		<div class ="col-lg-8 col-md-8 col-md-offset-1 col-lg-offset-1">
 
 			<div class="row">
@@ -48,8 +49,85 @@
 
 
 		      <div class="area">
-		        <ul  class="show">
-		          <p>TAB1のテキストが入ります。TAB1のテキストが入ります。TAB1のテキストが入ります。TAB1のテキストが入ります。</p>
+		        <ul >
+		          <% @history.each do |h| %>
+		          <div class="product-cart">
+							<table>
+								<tbody>
+									<tr>
+										<td class="product-cart-index">
+											宛名:<%=  h.ship_name %>
+										</td>
+										<td class="product-cart-index">
+											宛先:<%= h.ship_address %>
+										</td>
+										<td class="product-cart-index">
+											¥
+											<%= h.purchase_amount %>
+										</td>
+										<td class="product-cart-index">
+											注文日:<%= h.created_at.strftime("%Y-%m-%d") %>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<% h.order_details.each do |d| %>
+								<div class ="order-detail">
+									<table>
+										<% if d.product.favorited_by?(current_enduser) %>
+										<tbody>
+											<tr>
+												<td class ="order-detail-index">
+													<%= link_to product_path(d.product.id)do %>
+													<%= attachment_image_tag d.product, :jacket, size: "140x140" , fallback: "l_e_others_500.jpg" %>
+													<% end %>
+												</td>
+												<td class="product-cart-index">　</td>
+												<td class="order-detail-index">
+													<p>Teitle：</p>
+													<p>購入枚数：</p>
+													<p>小計：</p>
+													<p>いいね</p>
+												</td>
+												<td class="order-detail-index">
+													<P><%= link_to d.product.product_name , product_path(d.product.id) %></P>
+													<p><%= d.purchase_qty %></p>
+													<p><%= d.purchase_price %></p>
+													<p>
+										                <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+										            </p>
+												</td>
+
+											</tr>
+										</tbody>
+										<% else  %>
+										<tbody>
+											<tr>
+												<td class ="order-detail-index">
+													<%= link_to product_path(d.product.id)do %>
+													<%= attachment_image_tag d.product, :jacket, size: "140x140" , fallback: "l_e_others_500.jpg" %>
+													<% end %>
+												</td>
+												<td class="product-cart-index">　</td>
+												<td class="order-detail-index">
+													<p>Teitle：</p>
+													<p>購入枚数：</p>
+													<p>小計：</p>
+												</td>
+												<td class="order-detail-index">
+													<P><%= link_to d.product.product_name , product_path(d.product.id) %></P>
+													<p><%= d.purchase_qty %></p>
+													<p><%= d.purchase_price %></p>
+												</td>
+
+											</tr>
+										</tbody>
+										<% end %>
+									</table>
+								</div>
+							<% end %>
+						</div>
+		          <% end %>
 		        </ul>
 		        <ul>
 						<% @favorites.each do |f| %>
@@ -95,6 +173,7 @@
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 
 </body>
