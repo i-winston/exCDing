@@ -39,10 +39,60 @@
 				</div>
 			</div>
 		</div>
-
-		<div class ="col-lg-9 col-md-9">
+		<div class ="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1">
 			<h2>購入履歴</h2>
 			<div class="row">
+				<ul >
+		          <% @history.each do |h| %>
+		          <div class="product-cart">
+							<table>
+								<tbody>
+									<tr>
+										<td class="product-cart-index">
+											宛名:<%=  h.ship_name %>
+										</td>
+										<td class="product-cart-index">
+											宛先:<%= h.ship_address %>
+										</td>
+										<td class="product-cart-index">
+											¥
+											<%= h.purchase_amount %>
+										</td>
+										<td class="product-cart-index">
+											注文日:<%= h.created_at.strftime("%Y-%m-%d") %>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<% h.order_details.each do |d| %>
+								<div class ="order-detail">
+									<table>
+										<tbody>
+											<tr>
+												<td class ="product-cart-index">
+													<%= link_to product_path(d.product.id)do %>
+													<%= attachment_image_tag d.product, :jacket, size: "140x140" , fallback: "l_e_others_500.jpg" %>
+													<% end %>
+												</td>
+												<td class="product-cart-index">　</td>
+												<td class="product-cart-index">
+													<p>Teitle：</p>
+													<p>購入枚数：</p>
+													<p>小計：</p>
+												</td>
+												<td class="product-cart-index">
+													<P><%= link_to d.product.product_name , product_path(d.product.id) %></P>
+													<p><%= d.purchase_qty %></p>
+													<p><%= d.purchase_price %></p>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							<% end %>
+						</div>
+		          <% end %>
+		        </ul>
 			</div>
 		</div>
 	</div>

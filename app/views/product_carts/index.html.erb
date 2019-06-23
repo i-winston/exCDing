@@ -1,6 +1,17 @@
 <%= render "endusers/header" %>
 <div id="wrapper">
 <div class="container">
+	<% if @carts.blank? %>
+	<h2>商品を追加してください。</h2>
+　　    <label>いいね数ランキング</label>
+        <% @all_ranks.each.with_index(1) do |r, i| %>
+            <h4>
+              <%= "第#{i}位" %>
+                <%= link_to r.product_name , product_path(r.id) %>
+            </h4>
+        <% end %>
+        
+	<% else %>
 	<h2>ショッピングカート</h2>
 	<div class="row">
 		<div class="col-lg-8 col-md-8 ">
@@ -51,6 +62,7 @@
 				</div>
 			</div>
 		</div>
+
 		<div class="slide-box">
 			<div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 ">
 			  <div class="product-cart">
@@ -67,7 +79,6 @@
 							</table>
 						</div>
 				</div>
-
 				<div class="row">
 					<div>
 						<div class="col-lg-12">
@@ -79,5 +90,6 @@
 			</div>
 		</div>
 	</div>
+	<% end %>
 </div>
 </div>

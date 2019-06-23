@@ -59,7 +59,7 @@
     padding-right: 50px;
 }
 
-.bg{
+.bg-1{
     /*位置の設定*/
     width: 100%;
     height: 100%;
@@ -69,6 +69,21 @@
 
     /*背景画像の設定*/
     background: url(_wp-content_download_other_1_50_other25_M.jpg);
+    background-size: cover;
+
+    /*透過の設定*/
+    opacity: 0.5;
+}
+.bg-2{
+    /*位置の設定*/
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    /*背景画像の設定*/
+    background: url(records-614063_1280.jpg);
     background-size: cover;
 
     /*透過の設定*/
@@ -287,3 +302,18 @@ border-bottom: 3px solid black;
   padding: -15px -15px -30px -15px;
 }
 
+.order-detail {
+    width: 95%;
+    text-align: center;
+    padding-top: 5px;
+    border: 2px solid #f0ad4e;
+    margin: auto;
+    margin-bottom: 10px;
+}
+.order-detail-index {
+  width: 32%;
+}
+.product-cart-index {
+  padding-bottom: 10px;
+  padding-left: 10px;
+}

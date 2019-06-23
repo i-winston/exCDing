@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     passwords: 'endusers/passwords',
     registrations: 'endusers/registrations'
   }
+
   root 'products#index'
   resources :endusers , only: [:edit, :show, :update, :destroy] 
   resources :product_carts , only: [:index, :create, :destroy, :update]  
@@ -28,7 +29,7 @@ Rails.application.routes.draw do
   namespace :admins do
   resources :products , only: [:new, :create, :index, :edit, :update, :destroy, :show]
   resources :endusers , only: [:index, :show, :edit, :update, :destroy]
-  resources :orders , only: [:index]  
+  resources :orders , only: [:index, :update]  
   resources :contacts , only: [:index, :show, :create] 
   resources :homes , only: [:index] 
   end
