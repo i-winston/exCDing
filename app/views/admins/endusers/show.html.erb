@@ -69,18 +69,18 @@
 									<table>
 										<tbody>
 											<tr>
-												<td class ="order-detail-index">
+												<td class ="product-cart-index">
 													<%= link_to product_path(d.product.id)do %>
 													<%= attachment_image_tag d.product, :jacket, size: "140x140" , fallback: "l_e_others_500.jpg" %>
 													<% end %>
 												</td>
 												<td class="product-cart-index">　</td>
-												<td class="order-detail-index">
+												<td class="product-cart-index">
 													<p>Teitle：</p>
 													<p>購入枚数：</p>
 													<p>小計：</p>
 												</td>
-												<td class="order-detail-index">
+												<td class="product-cart-index">
 													<P><%= link_to d.product.product_name , product_path(d.product.id) %></P>
 													<p><%= d.purchase_qty %></p>
 													<p><%= d.purchase_price %></p>

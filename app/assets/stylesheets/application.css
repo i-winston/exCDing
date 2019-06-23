@@ -313,3 +313,7 @@ border-bottom: 3px solid black;
 .order-detail-index {
   width: 32%;
 }
+.product-cart-index {
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
