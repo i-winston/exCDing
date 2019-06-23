@@ -1,5 +1,5 @@
 <%= render "endusers/admin" %>
-<%= form_for(@user) do |f| %>
+<%= form_for(@user, url: admins_order_path) do |f| %>
 <div class="container">
 	<h4>購入履歴一覧</h4>
 	<table class="table table-hover">
@@ -23,7 +23,7 @@
 				<td><%=  %></td>
 				<td><%= order.purchase_amount %></td>
 				<td><%= order.payment %></td>
-				<td><%= f.select :ship_address, [[order.order_status],["商品準備中"],["出荷済"]] %></td>
+				<td><%= f.select :ship_address, Order.order_statuses.keys.map{|s| [s,s,s]} %></td>
 				<td><%= f.submit "更新", class: "btn btn-success btn-sm" %></td>
 			</tr>
 			<% end %>
