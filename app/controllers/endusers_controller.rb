@@ -10,6 +10,10 @@ class EndusersController < ApplicationController
   def show
     @favorites = Favorite.where(enduser_id: @current_enduser.id)
     # @product = Product.find_by(id: favorites.product_id)
+    @history = Order.where(enduser_id: current_enduser.id)
+    @product = Product.find(params[:id])
+
+
   end
 
   def like(product)
@@ -21,7 +25,8 @@ class EndusersController < ApplicationController
     favorite.destroy if favorite
   end
 
-  def index
+  def orders
+    @order = OrderDetail.find(paramas[:id])
   end
 
   def new

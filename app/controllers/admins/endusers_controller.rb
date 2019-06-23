@@ -7,6 +7,7 @@ class Admins::EndusersController < ApplicationController
 
   def show
     @enduser = Enduser.find(params[:id])
+    @history = Order.where(enduser_id: @enduser.id)
   end
 
   def edit
