@@ -25,6 +25,7 @@
 										<%= f.hidden_field :purchase_amount, value: @price %>
 										<%= f.hidden_field :tax, value: @tax %>
 										<%= f.hidden_field :freight, value: @carriage %>
+										<%= f.hidden_field :order_status, value: "受付" %>
 									</td>
 								</tr>
 							</table>
@@ -35,7 +36,7 @@
 				<div class="row">
 					<div class="col-lg-offset-2">
 						<h3><strong>お届け先</strong></h3>
-						
+						<p>※お届け先情報を選択してください。</p>
 						<div class="order-address">
 							<table>
 
