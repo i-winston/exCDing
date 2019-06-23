@@ -1,4 +1,4 @@
 class ContactAnswer < ApplicationRecord
-  belongs_to :contacts
-  belongs_to :admins
+  belongs_to :contact
+  belongs_to :admin
 end
