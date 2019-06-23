@@ -4,6 +4,13 @@ class ContactMailer < ApplicationMailer
 
   def received_email(contact)
     @contact = contact
-    mail(:subject => 'お問い合わせ承りました。')
+    mail(:subject => 'お問い合わせがありました。')
   end # 送信先アドレス
+
+  def thanks_email(answer, contact)
+    @contact = Contact.find_by(id: contact)
+    @enduser = Enduser.find_by(id: @contact.enduser_id)
+    @answer = answer
+    mail(to: @enduser.email, subject: 'お問い合わせ誠にありがとうございます。')
+  end
 end

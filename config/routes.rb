@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   namespace :admins do
   resources :products , only: [:new, :create, :index, :edit, :update, :destroy, :show]
   resources :endusers , only: [:index, :show, :edit, :update, :destroy]
-  resources :orders , only: [:index]  
+  resources :orders , only: [:index, :update]  
   resources :contacts , only: [:index, :show, :create] 
   resources :homes , only: [:index] 
   end

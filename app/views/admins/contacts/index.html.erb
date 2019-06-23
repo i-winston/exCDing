@@ -16,7 +16,7 @@
                 <tbody>
 	                <tr>
 	                	<th><%= check_box_tag :sample1 %></th>
-		                <th><%= contact.name %></th>
+		                <th><%= link_to contact.name, admins_enduser_path(contact.enduser.id) %></th>
 		                <th><%= link_to contact.contact_title, admins_contact_path(contact.id) %></th>
 		                <th><%= contact.contact_message %></th>
 		                <th><%= contact.enduser.email %></th>

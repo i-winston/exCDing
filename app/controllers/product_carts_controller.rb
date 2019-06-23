@@ -1,6 +1,7 @@
 class ProductCartsController < ApplicationController
   def index
     @carts = ProductCart.where(enduser_id: current_enduser.id)
+    @all_ranks = Product.find(Favorite.group(:product_id).order('count(product_id) desc').limit(5).pluck(:product_id))
   end
 
   def create

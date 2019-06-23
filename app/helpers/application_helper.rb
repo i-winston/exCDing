@@ -27,5 +27,4 @@ module ApplicationHelper
     total_tax = (total + carriage) * tax
     return total_tax.floor
   end
-
 end

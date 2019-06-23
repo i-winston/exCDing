@@ -1,6 +1,5 @@
 <%= render "endusers/header" %>
 <div id="wrapper">
-
   <div class="bg-1"></div>
   <div class="bg">
   <ul class ="bxslider-3" style="width: 100%;">
@@ -34,26 +33,31 @@
               <% end %>
               </li>
             <% end %>
-          </ul>
+            </li>
+        </ul>
       </div>
     </div>
-  <div class="block"></div>
+
+  </div>
+
+<div class="block"></div>
+
 
 <div class="container">
   <div class = "row">
 
     <div class = "col-lg-2">
       <h2>商品一覧</h2>
-        <label>いいね数ランキング</label>
-        <% @all_ranks.each.with_index(1) do |r, i| %>
-            <h4>
-              <%= "第#{i}位" %>
-                <%= link_to r.product_name , product_path(r.id) %>
-            </h4>
-        <% end %>
+      <label>いいね数ランキング</label>
+      <% @all_ranks.each.with_index(1) do |r, i| %>
+        <h4>
+          <%= "第#{i}位" %>
+            <%= link_to r.product_name , product_path(r.id) %>
+        </h4>
+      <% end %>
     </div>
-      <div class = "col-lg-10">
-        <div class = "row">
+    <div class = "col-lg-10">
+      <div class = "row">
         <% @search_products.each do |product| %>
           <div class = "col-lg-2 col-lg-offset-2">
             <th>
