@@ -300,3 +300,7 @@ border-bottom: 3px solid black;
   padding-bottom: 10px;
   padding-left: 10px;
 }
+
+.fallback {
+  border: 1px solid black;
+}

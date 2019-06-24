@@ -10,7 +10,7 @@
                      <h2>会員情報編集</h2>
                   </div>
                   <div class="form-body">
-                      <%= form_for(@enduser , url:{controler: "endusers", action: "update"}) do |f| %>
+                      <%= form_for(@enduser , url:{controller: "endusers", action: "update"}) do |f| %>
                         <%= render "devise/shared/error_messages", resource: resource %>
 
                       <div class="col-lg-5 col-md-5">
