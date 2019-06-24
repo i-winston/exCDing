@@ -44,12 +44,6 @@ class OrdersController < ApplicationController
     @order.save
     redirect_to orders_path
   end
-
-  def update
-    order = Order.find(params[:id])
-    order.update(order_params)
-    redirect_to admins_endusers_path
-  end
   
   private
 

@@ -7,11 +7,11 @@
 			<tr>
 				<th>注文日</th>
 				<th>購入者</th>
-				<th>注文内容</th>
+				<th>発送先</th>
 				<th>合計金額</th>
 				<th>支払い方法</th>
 				<th>処理状態</th>
-				<td></td>)
+				<td></td>
 			</tr>
 		</thead>
 		<tbody>
@@ -19,11 +19,11 @@
 			<% @orders.each do |order| %>
 			<tr>
 				<td><%= order.created_at.strftime("%Y-%m-%d") %></td>
-				<td><%= order.ship_name %></td>
-				<td><%=  %></td>
+				<td><%= link_to order.enduser.family_name + order.enduser.first_name, admins_enduser_path(order.enduser.id) %></td>
+				<td><%= order.ship_address %></td>
 				<td><%= order.purchase_amount %></td>
 				<td><%= order.payment %></td>
-				<%= form_for @user,url: admins_order_path(order.id) method: 'patch' do |f| %>
+				<%= form_for @order do |f| %>
 				<td><%= f.select :ship_address, Order.order_statuses.keys.map{|s| [s,s,s]} %></td>
 				<td><%= f.submit "更新", class: "btn btn-success btn-sm" %></td>
 				<% end %>
