@@ -60,19 +60,13 @@
 }
 
 .bg-1{
-    /*位置の設定*/
-    width: 100%;
-    padding-top: 58.666667%;
-    position: relative;
-    top: 0;
-    left: 0;
-
-    /*背景画像の設定*/
     background: url(_wp-content_download_other_1_50_other25_M.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 
     /*透過の設定*/
-    opacity: 0.5;
+    background-position: center center;
 }
 .bg{
     position: absolute;
