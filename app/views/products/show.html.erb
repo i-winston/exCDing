@@ -12,12 +12,18 @@
         <p><div class="product-artist">アーティスト：<%= @product.disks.first.songs.first.artist.artist_name %></div></p>
         <p>レーベル：<%= @product.label.label_name %></p>
         <p>ジャンル：<%= @product.disks.first.songs.first.genre.genre_name %></p>
-        <p>価格(税込)：￥<%= @price %>円</p>
-        <th>在庫：</th>
-        <% if @product.product_stock == 0 %>
-          <th>無</th>
+        <% if @product.product_status == "販売中" %>
+          <p>価格(税込)：￥<%= @price %>円</p>
         <% else %>
-          <th>有</th>
+          <p><%= @product.product_status %></p>
+        <% end %>
+        <% if @product.product_status == "販売中" %>
+          <th>在庫：</th>
+            <% if @product.product_stock == 0 %>
+              <th>無</th>
+            <% else %>
+              <th>有</th>
+            <% end %>
         <% end %>
 
         <% if enduser = signed_in? %>
@@ -60,8 +66,9 @@
 
         <div div class="col-md-6">
           <%= form_for(@cart, url: product_carts_path, method: 'Post') do |f| %>
-
+          <% if @product.product_status == "販売中" %>
           <p><%= f.number_field :product_count,start:1, min:1,max:@product.product_stock, step:1 %>個</p>
+          <% end %>
           <%= f.hidden_field :product_id, value: @product.id %>
           
 
@@ -75,7 +82,9 @@
     <%= link_to "商品一覧へ", products_path, class: "btn btn-default btn-lg btn-block" %>
   </div>
   <div class="col-md-3 col-md-offset-1">
-    <%= f.submit 'カート追加', class:"btn btn-default btn-lg btn-block" %>
+    <% if @product.product_status == "販売中" %>
+      <%= f.submit 'カート追加', class:"btn btn-default btn-lg btn-block" %>
+    <% end %>
   </div>
   <% end %>
 </div>
