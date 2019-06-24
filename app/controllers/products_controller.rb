@@ -22,7 +22,9 @@ class ProductsController < ApplicationController
     @cart = ProductCart.new
     @disks = @product.disks
     @price = (@product.price * 1.08).floor
-
+    @products = ProductCart.where(enduser_id: current_enduser.id )
+    @count = @product.product_stock - 0
+  
     # @carts = ProductCart.where(enduser_id: current_enduser.id)
     # if @carts.product_ids.include?(@product.id)
     # @carts.each do |cart|
