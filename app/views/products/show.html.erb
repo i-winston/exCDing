@@ -60,12 +60,8 @@
 
         <div div class="col-md-6">
           <%= form_for(@cart, url: product_carts_path, method: 'Post') do |f| %>
-
-          <p><%= f.number_field :product_count,start:1, min:1,max:@product.product_stock, step:1 %>個</p>
+          <p><%= f.number_field :product_count,start:1, min:1,max:@count, step:1 %>個</p>
           <%= f.hidden_field :product_id, value: @product.id %>
-          
-
-          
         </div>
       </div>
     </div>

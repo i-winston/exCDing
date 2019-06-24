@@ -13,7 +13,6 @@ class EndusersController < ApplicationController
     @history = Order.order("created_at DESC")
     @history = Order.where(enduser_id: @current_enduser.id )
 
-    @product = Product.find(params[:id])
   end
 
   def like(product)

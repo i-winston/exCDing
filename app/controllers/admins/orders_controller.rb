@@ -2,7 +2,7 @@ class Admins::OrdersController < ApplicationController
   before_action :authenticate_admin!
   def index
     @orders = Order.all
-    @user = Order.new
+    @orders = Order.order("created_at DESC")
   end
 
   def update
