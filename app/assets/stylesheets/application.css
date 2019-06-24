@@ -60,19 +60,14 @@
 }
 
 .bg-1{
-    /*位置の設定*/
-    width: 100%;
-    padding-top: 58.666667%;
-    position: relative;
-    top: 0;
-    left: 0;
 
-    /*背景画像の設定*/
     background: url(_wp-content_download_other_1_50_other25_M.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 
     /*透過の設定*/
-    opacity: 0.5;
+    background-position: center center;
 }
 .bg{
     position: absolute;
@@ -128,7 +123,8 @@
   padding: 30px 3px 50px 3px;
 }
 .container {
-    padding-left: 20px
+    padding-left: 20px;
+    padding-top: 50px;
 }
 
 
@@ -197,7 +193,7 @@
     width: 100%;
   height: 0px;
   text-align: center;
-
+  margin-top: auto;
 }
 
 .panel-footer{
@@ -304,4 +300,8 @@ border-bottom: 3px solid black;
 .product-cart-index {
   padding-bottom: 10px;
   padding-left: 10px;
+}
+
+.fallback {
+  border: 1px solid black;
 }
