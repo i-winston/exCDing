@@ -69,7 +69,11 @@
                 <%= product.favorites.count  %>
               </div>
               <div><%= product.disks.first.songs.first.artist.artist_name %></div>
-              <div>￥<%= product.price %></div>
+              <% if product.product_status == "販売中" %>
+                <div>￥<%= product.price %></div>
+              <% else %>
+                <div><%= product.product_status %></div>
+              <% end %>
             </th>
           </div>
         <% end %>

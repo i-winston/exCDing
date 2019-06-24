@@ -21,7 +21,6 @@ $(document).ready(function(){
     slideMargin: 10,
     tickerHover: true,
     speed: 30000
-
   });
 });
 $(document).ready(function(){
