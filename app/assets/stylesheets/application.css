@@ -122,7 +122,8 @@
   padding: 30px 3px 50px 3px;
 }
 .container {
-    padding-left: 20px
+    padding-left: 20px;
+    padding-top: 50px;
 }
 
 
@@ -298,4 +299,8 @@ border-bottom: 3px solid black;
 .product-cart-index {
   padding-bottom: 10px;
   padding-left: 10px;
+}
+
+.fallback {
+  border: 1px solid black;
 }
