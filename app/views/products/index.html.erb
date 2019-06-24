@@ -2,7 +2,8 @@
 <div id="wrapper">
   <div class="bg-1"></div>
   <div class="bg-1">
-  <ul class ="bxslider-3" style="width: 100%;">
+    <div style="padding-top: 50px;">
+          <ul class ="bxslider-3" style="width: 100%;">
             <% @products.each do |j| %>
               <li>
               <%= link_to product_path(j.id) do %>
@@ -11,6 +12,7 @@
               </li>
             <% end %>
           </ul>
+    </div>
       <div class="bxslider1">
         <div id="slider-wrapper">
         <div id="slider-inner">
