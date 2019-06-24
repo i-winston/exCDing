@@ -2,13 +2,14 @@ class Admins::OrdersController < ApplicationController
   before_action :authenticate_admin!
   def index
     @orders = Order.all
-    @order = Order.new
+    @orders = Order.order("created_at DESC") 
+
   end
 
   def update
     @order = Order.find(params[:id])
     @order.update(order_params)
-    redirect_to admins_endusers_path
+    redirect_to admins_orders_path
   end
 
   private
