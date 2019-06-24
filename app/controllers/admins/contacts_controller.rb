@@ -10,7 +10,7 @@ class Admins::ContactsController < ApplicationController
 
   def create
     @contact_answers = ContactAnswer.new(contact_answers_params)
-    @contact_answers.contact_id = current_admin.id
+    @contact_answers.contact_id = params[:contact_id]
     @contact_answers.admin_id = current_admin.id
     @contact_answers.save
     ContactMailer.thanks_email(@contact_answers, params[:contact_id]).deliver
@@ -20,6 +20,6 @@ class Admins::ContactsController < ApplicationController
   private
 
   def contact_answers_params
-    params.require(:contact_answer).permit(:answer_title, :answer_message)
+    params.require(:contact_answer).permit(:answer_title, :answer_message, :contact_status)
   end
 end

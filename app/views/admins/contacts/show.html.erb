@@ -5,7 +5,7 @@
   	<div class="contact col-md-6 col-md-offset-3">
       <div class="panel panel-default bg-danger">
       <div class="panel-heading">回答状況</div>
-      <div class="panel-body">未送信</div>
+      <div class="panel-body"><%= @contact.contact_answers.last.contact_status %></div>
       <div class="panel-heading">名前</div>
       <div class="panel-body"><%= @contact.name %></div>
       <div class="panel-heading">日時</div>
@@ -40,6 +40,7 @@
     <tr>
       <th>お問い合わせ内容</th>
       <div class="form-group"><%= f.text_area :answer_message,class:'form-control'%></div>
+      <td><%= f.radio_button :contact_status, "返信済み" %>チェックを入れてください</td>
     </tr>
     <%= f.submit '送信', class: 'btn btn-primary' %>
     <% end %>
