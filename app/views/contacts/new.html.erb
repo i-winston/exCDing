@@ -25,6 +25,7 @@
       <th>お問い合わせ内容</th>
       <div class="form-group"><%= f.text_area :contact_message,class:'form-control'%></div>
     </tr>
+    <%= f.hidden_field :status, value:"未返信" %>
   </table>
   <%= f.submit '送信', class: 'btn btn-primary' %>
 <% end %>
