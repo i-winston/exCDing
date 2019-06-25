@@ -1,4 +1,8 @@
 class Product < ApplicationRecord
+
+  acts_as_paranoid
+
+  
   has_many :favorites, dependent: :destroy
   has_many :product_carts, dependent: :destroy
   has_many :order_details, dependent: :destroy
