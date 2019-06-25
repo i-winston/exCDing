@@ -5,20 +5,29 @@
             <table class="table table-border">
 	            <thead>
 		            <tr>
-		            	<th></th>
 			            <th>名前</th>
 			            <th>title</th>
 			            <th>問い合わせ内容</th>
+			            <th>返信内容</th>
 			            <th>emailaddres</th>
 		            </tr>
 	            </thead>
             <% @contact.each do |contact| %>
                 <tbody>
 	                <tr>
-	                	<th><%= check_box_tag :sample1 %></th>
 		                <th><%= link_to contact.name, admins_enduser_path(contact.enduser.id) %></th>
 		                <th><%= link_to contact.contact_title, admins_contact_path(contact.id) %></th>
 		                <th><%= contact.contact_message %></th>
+		                <% if ContactAnswer.exists?(contact_id: contact.id) %>
+			                <% if contact.contact_answers.last.answer_message.blank? %>
+			                	<th></th>
+			                <% else %>
+			            	    <th><%= contact.contact_answers.last.answer_message %></th>
+			                <% end %>
+		                <% else %>
+		                	<th></th>
+		                <% end %>
+
 		                <th><%= contact.enduser.email %></th>
 	                </tr>
                 </tbody>
