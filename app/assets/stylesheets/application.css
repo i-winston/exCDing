@@ -304,3 +304,7 @@ border-bottom: 3px solid black;
 .fallback {
   border: 1px solid black;
 }
+
+img {
+  border: 1px solid black;
+}
