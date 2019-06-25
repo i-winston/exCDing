@@ -75,7 +75,7 @@
               </div>
               <div><%= product.disks.first.songs.first.artist.artist_name %></div>
               <% if product.product_status == "販売中" %>
-                <div>￥<%= product.price %></div>
+                <div>￥<%= product.price %>円(税込)</div>
               <% else %>
                 <div><%= product.product_status %></div>
               <% end %>
