@@ -49,3 +49,10 @@ $(document).ready(function(){
     autoHover: true       // ホバー時に自動スライドを停止
   });
 });
+
+$(function() {
+  $('.jscroll').jscroll({
+    contentSelector: '.skill-list',
+    nextSelector: 'span.next:last a'
+  });
+});
