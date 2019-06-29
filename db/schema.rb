@@ -10,15 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_29_083059) do
-
+ActiveRecord::Schema.define(version: 2019_06_26_035152) do
 
   create_table "add_impressions_count_to_products", force: :cascade do |t|
     t.integer "impressions_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -46,9 +44,8 @@ ActiveRecord::Schema.define(version: 2019_06_29_083059) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "answer_message"
-
+    t.integer "contact_detail"
     t.integer "contact_status"
-
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -176,8 +173,6 @@ ActiveRecord::Schema.define(version: 2019_06_29_083059) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
-    t.integer "inpression_count"
-    t.integer "inpressions_count"
     t.integer "impressions_count"
   end
 
