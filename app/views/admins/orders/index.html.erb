@@ -1,31 +1,36 @@
-<%= render "enduser/admin" %>
+<%= render "endusers/admin" %>
 <div class="container">
-	<div class="row">
-		<div class="col-log-10 col-lg-offset-1">
-			<h4>購入履歴一覧</h4>
-			<table>
-				<thead>
-					<tr>
-						<th>注文日</th>
-						<th>購入者</th>
-						<th>注文内容</th>
-						<th>合計金額</th>
-						<th>支払い方法</th>
-						<th>処理状態</th>
-						<th>　</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>注文日</td>
-						<td>購入者</td>
-						<td>注文内容</td>
-						<td>合計金額</td>
-						<td>支払い方法</td>
-						<td>処理状態</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	</div>
+	<h4>購入履歴一覧</h4>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>注文日</th>
+				<th>購入者</th>
+				<th>発送先</th>
+				<th>合計金額</th>
+				<th>支払い方法</th>
+				<th>処理状態</th>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+
+			<% @orders.each do |order| %>
+			<tr>
+				<td><%= order.created_at.strftime("%Y-%m-%d") %></td>
+				<td><%= order.ship_name %></td>
+				<td><%= link_to order.enduser.family_name + order.enduser.first_name, admins_enduser_path(order.enduser.id) %></td>
+				<td><%= order.ship_address %></td>
+				<td><%= order.purchase_amount %></td>
+				<td><%= order.payment %></td>
+
+				<%= form_for(order, :url => admins_order_path(order)) do |f| %>
+
+				<td><%= f.select :order_status, Order.order_statuses.keys.map{|s| [s,s,s]} %></td>
+				<td><%= f.submit "更新", class: "btn btn-success btn-sm" %></td>
+				<% end %>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
 </div>

@@ -3,7 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .product-cart{
 	border: 2px solid #8C8C00;
+	margin-bottom: 10px;
 }
 .product-cart-index {
-	width: 20%;
+		width: 20%;
+	text-align: center;
+	padding-top: 5px;
+	// width: 100px;
+}
+.slide-box {
+	position: fixed;
+	right: -795px;
+	width: 100%;
 }

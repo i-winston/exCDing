@@ -8,29 +8,44 @@ class EndusersController < ApplicationController
   end
 
   def show
+    @favorites = Favorite.where(enduser_id: @current_enduser.id)
+    # @product = Product.find_by(id: favorites.product_id)
+    
+    @history = Order.where(enduser_id: @current_enduser.id )
+    @history = Order.order("created_at DESC")
+
   end
 
-  def index
+  def like(product)
+    favorites.find_or_create_by(product_id: product.id)
+  end
+
+  def unlike(product)
+    favorite = favorites.find_by(product_id: product.id)
+    favorite.destroy if favorite
+  end
+
+  def orders
+    @order = OrderDetail.find(paramas[:id])
   end
 
   def new
     @enduser = Enduser.new
   end
 
+  def destroy
+    enduser = Enduser.find(params[:id])
+    enduser.destroy
+    redirect_to products_path
+  end
+
   def update
     @enduser = Enduser.find(params[:id])
-    if
-      @enduser.update(enduser_params)
+    if @enduser.update(enduser_params)
       redirect_to enduser_path(@enduser.id), notice: "プロフィールを変更しました"
     else
       render action: "edit"
     end
-  end
-
-  def destroy
-    enduser = Enduser.find(params[:id])
-    enduser.destroy
-    redirect_to admins_endusers_path
   end
 
   private

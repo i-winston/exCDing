@@ -11,9 +11,77 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
+ *= require_tree ../../../app/assets/stylesheets/.
  *= require_self
  */
-.btn-info-homes {
+
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.bx-wrapper {
+  max-width: 100%;
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  background: none !important;
+}
+.bxslider1 .bxslider {
+
+  width: 100%;
+  margin: 0 auto;
+}
+.bx-wrapper  {
+  max-width: 2000px !important;
+}
+
+
+.bxslider img {
+    margin:0 auto;
+    display:block;
+    }
+#slider-wrapper {
+    position: relative;
+}
+#slider-inner {
+    margin: 0 auto;
+    max-width: 1000px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.bg-1{
+    background: url(_wp-content_download_other_1_50_other25_M.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    /*透過の設定*/
+    background-position: center center;
+}
+.bg{
+    position: absolute;
+}
+
+#slider-wrapper {
+    position: relative;
+}
+#slider-inner {
+    margin: 0 auto;
+    max-width: 1000px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.btn-info {
     color: #000;
     background-color: rgb(218, 232, 252);
     border-color: #46b8da;
@@ -54,8 +122,11 @@
   padding: 30px 3px 50px 3px;
 }
 .container {
-    padding-left: 20px
+    padding-left: 20px;
+    padding-top: 50px;
 }
+
+
 
 .glyphicon-log-out{
     font-size: 25px;
@@ -90,6 +161,7 @@
 
 .navbar-form{
     margin: 12.5px 0px 12.5px 0px;
+    display: flex;
 }
 
  .log-in-form{
@@ -120,7 +192,7 @@
     width: 100%;
   height: 0px;
   text-align: center;
-
+  margin-top: auto;
 }
 
 .panel-footer{
@@ -131,9 +203,134 @@
     border: 1px solid #ddd;
 }
 .panel-default{
-    border-color: #ffffff
+    border-color: #ffffff;
+    margin-bottom: 0;
 }
 
 .footer{
     text-align: right;
+}
+
+.form{
+    margin: 100px 300px 100px 300px ;
+
+}
+.dt{
+    display: inline-block;
+}
+
+
+
+.tab {
+border-bottom: 3px solid black;
+
+}
+.tab li {
+  color: #333;
+  float: left;
+  margin: 0 10px -1px 0;
+  padding: 10px 20px;
+  border: 1px solid black;
+  cursor: pointer;
+  list-style: none;
+  transition: .1s;
+}
+
+.tab li.active{
+ background:black;
+ color: white;
+ cursor: auto;
+}
+
+.area ul {
+  display: none;
+}
+
+.area ul.show{
+  display: block;
+  border: solid 3px black;
+  border-top: none;
+  padding: 3px;
+}
+
+.site_header{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+}
+.block{
+    padding-top: 59px;
+}
+
+.panel-default {
+  padding-left: -15px;
+  padding-right: -15px;
+}
+
+#panel-default .panel-heading{
+  margin: 0px -15px;
+}
+
+
+
+.newbox{
+  padding-top: 15px;
+  padding-bottom: 30px;
+  border: 3px solid black;
+}
+
+.contact{
+  padding: -15px -15px -30px -15px;
+}
+
+.order-detail {
+    width: 95%;
+    text-align: center;
+    padding-top: 5px;
+    border: 2px solid #f0ad4e;
+    margin: auto;
+    margin-bottom: 10px;
+}
+.order-detail-index {
+  width: 32%;
+}
+.product-cart-index {
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+.fallback {
+  border: 1px solid black;
+}
+
+img {
+  border: 1px solid black;
+}
+ul.skill-list {
+  padding: 0;
+}
+
+#page-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 80%;
+}
+ 
+#page-top a {
+    display: block;
+    background: #666;
+    color: #fff;
+    width: 100px;
+    padding: 25px 0;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+}
+ 
+#page-top a:hover {
+    background: #999;
+    text-decoration: none;
 }

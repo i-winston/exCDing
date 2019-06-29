@@ -1,3 +1,49 @@
 
-<%= render "enduser/admin" %><h1>Admins::Contacts#show</h1>
-<p>Find me in app/views/admins/contacts/show.html.erb</p>
+<%= render "endusers/admin" %>
+<div class="container">
+  <div class="row">
+  	<div class="contact col-md-6 col-md-offset-3">
+      <div class="panel panel-default bg-danger">
+      <div class="panel-heading">回答状況</div>
+      <div class="panel-body"><%= @contact.status %></div>
+      <div class="panel-heading">名前</div>
+      <div class="panel-body"><%= @contact.name %></div>
+      <div class="panel-heading">日時</div>
+      <div class="panel-body"><%= @contact.created_at.strftime('%Y/%m/%d %H:%M') %></div>
+      <div class="panel-heading">メールアドレス</div>
+      <div class="panel-body"><%= @contact.enduser.email %></div>
+      <div class="panel-heading">タイトル</div>
+      <div class="panel-body"><%= @contact.contact_title %></div>
+      <div class="panel-heading">お問い合わせ内容</div>
+      <div class="panel-body"><%= @contact.contact_message %></div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="contact col-md-6 col-md-offset-3">
+
+      <div class="form-group">
+    <%= form_for(@contact_answers, url: admins_contacts_path(contact_id: @contact.id)) do |f| %>
+　　　<div class="page-header">
+
+      <h1>返信フォーム</h1>
+     </div>
+
+    <tr>
+      <th>タイトル</th>
+      <div class="form-group"><%= f.text_field :answer_title, class:'form-control'%></div>
+    </tr>
+
+    <tr>
+      <th>お問い合わせ内容</th>
+      <div class="form-group"><%= f.text_area :answer_message,class:'form-control'%></div>
+    <%= f.submit '送信', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
+</div>
+</div>
+  </div>

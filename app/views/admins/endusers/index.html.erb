@@ -1,35 +1,35 @@
-<%= render "enduser/admin" %>
+<%= render "endusers/admin" %>
+<div id="wrapper">
 <div class="container">
 	<div class="row">
 		<div class="col-lg-12">
 			<div style="border: 2px solid #8C8C00;">
-				<table>
+				<table class="table" style="width: 100%;">
 					<thead>
 						<tr>
-							<th style="width: 40%; padding-left: 10px">ID</th>
-							<th>名</th>
-							<th style="width: 39%;">前</th>
-							<th>編集</th>
-							<th>　削除</th>
+							<th class="col-lg-1 col-md-1">ID</th>
+							<th class="col-lg-4 col-md-4">姓</th>
+							<th class="col-lg-4 col-md-4">名</th>
+							<th class="col-lg-1 col-md-1">編集</th>
+							<th class="col-lg-2 col-md-2">削除</th>
 						</tr>
 					</thead>
-					<div class="row">
 					<tbody>
-						<% @endusers.each do |user| %>
+						<% @endusers.each do |u| %>
 						<tr>
-							<td style="width: 40%; padding-left: 10px"><%= user.id %></td>
-							<td><%= user.first_name %></td>
-							<td style="width: 39%;"><%= user.family_name %></td>
-							<td><%= link_to "Edit", admins_endusers_path %></td>	
-							<td>
-								 <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+							<td class="col-lg-1 col-md-1"><%= link_to u.id , admins_enduser_path(u) %></td>
+							<td class="col-lg-4 col-md-4"><%= link_to u.family_name , admins_enduser_path(u) %></td>
+							<td class="col-lg-4 col-md-4"><%= link_to u.first_name , admins_enduser_path(u) %></td>
+							<td class="col-lg-1 col-md-1"><%= link_to "編集", edit_admins_enduser_path(u) , class: "btn btn-warning"%></td>
+							<td class="col-lg-2 col-md-2">
+								<%= button_to "アカウント削除", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete , class: "btn btn-danger"%>
 							</td>
 						</tr>
 						<% end %>
 					</tbody>
-					</div>
 				</table>
 			</div>
 		</div>
 	</div>
+</div>
 </div>

@@ -1,3 +1,110 @@
-<%= render "enduser/admin" %>
-<h1>Admins::Endusers#show</h1>
-<p>Find me in app/views/admins/endusers/show.html.erb</p>
+<%= render "endusers/admin" %>
+<div id="wrapper">
+<div class=body>
+	<div class=container>
+		<div class ="col-md-6 col-md-offset-3 user-info-form ">
+			<div class = "row" >
+				<div class="form-user style-2">
+					<h2 style="text-align: center;">会員情報</h2>
+					<table class="table" >
+						<tbody>
+							<tr>
+								<th>Name</th>
+								<th><%= "#{@enduser.family_name}" + " " + "#{@enduser.first_name}" %></th>
+							</tr>
+							<tr>
+								<th>Name(フリガナ)</th>
+								<th><%= "#{@enduser.family_name_kana}" + " " + "#{@enduser.first_name_kana}" %></th>
+							</tr>
+							<tr>
+								<th>住所</th>
+								<th><%= "#{@enduser.registration_address}" %></th>
+							</tr>
+							<tr>
+								<th>郵便番号</th>
+								<th><%= "#{@enduser.registration_postal_code}" %></th>
+							</tr>
+							<tr>
+								<th>電話番号</th>
+								<th><%= "#{@enduser.phone_number}" %></th>
+							</tr>
+							<tr>
+								<th>メールアドレス</th>
+								<th><%= "#{@enduser.email}" %></th>
+							</tr>
+						</tbody>
+					</table>
+            		<%= link_to edit_admins_enduser_path , class: "col-xs-12 btn btn-warning glyphicon glyphicon-wrench edit_enduser_#{}" do %>
+          			<% end %>
+				</div>
+			</div>
+		</div>
+		<div class ="col-lg-10 col-md-10 col-lg-offset-1 col-md-offset-1">
+			<h2>購入履歴</h2>
+			<div class="row">
+				<ul >
+		          <% @history.each do |h| %>
+		          <div class="product-cart">
+							<table>
+								<tbody>
+									<tr>
+										<td class="product-cart-index">
+											宛名:<%=  h.ship_name %>
+										</td>
+										<td class="product-cart-index">
+											宛先:<%= h.ship_address %>
+										</td>
+										<td class="product-cart-index">
+											¥
+											<%= h.purchase_amount %>
+										</td>
+										<td class="product-cart-index">
+											注文日:<%= h.created_at.strftime("%Y-%m-%d") %>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<% h.order_details.each do |d| %>
+								<div class ="order-detail">
+									<table>
+										<tbody>
+											<tr>
+												<td class ="product-cart-index">
+													<%= link_to product_path(d.product.id)do %>
+													<%= attachment_image_tag d.product, :jacket, size: "140x140" , fallback: "l_e_others_500.jpg" %>
+													<% end %>
+												</td>
+												<td class="product-cart-index">　</td>
+												<td class="product-cart-index">
+													<p>Teitle：</p>
+													<p>購入枚数：</p>
+													<p>小計：</p>
+												</td>
+												<td class="product-cart-index">
+													<P><%= link_to d.product.product_name , product_path(d.product.id) %></P>
+													<p><%= d.purchase_qty %></p>
+													<p><%= d.purchase_price %></p>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							<% end %>
+						</div>
+		          <% end %>
+		        </ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-offset-10 col-lg-2">
+				<div>
+					<%= link_to "戻る", :back %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+
+

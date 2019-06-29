@@ -1,5 +1,7 @@
 <%= render  "endusers/header" %>
-<dib class=body>
+<body>
+	<div id="wrapper">
+
 	<div class=container>
 		<div class ="col-lg-3 col-md-3 user-info-form ">
 			<div class = "row" >
@@ -35,12 +37,153 @@
 			</div>
 		</div>
 
-		<div class ="col-lg-9 col-md-9">
-			<h2>購入履歴</h2>
+	<div class="turbolinks=false">
+		<div class ="col-lg-8 col-md-8 col-md-offset-1 col-lg-offset-1">
+
 			<div class="row">
+				<ul class="tab clearfix" style= "margin-bottom: 0;">
+
+				    <li  class="active fa fa-history" style="font-size: 30px;"></li>
+				    <li  class="tab  fa fa-heart"  style="font-size: 30px; "></li>
+				</ul>
+
+
+		      <div class="area">
+		        <ul class=show>
+		          <% @history.each do |h| %>
+		          <div class="product-cart">
+							<table>
+								<tbody>
+									<tr>
+										<td class="product-cart-index">
+											宛名:<%=  h.ship_name %>
+										</td>
+										<td class="product-cart-index">
+											宛先:<%= h.ship_address %>
+										</td>
+										<td class="product-cart-index">
+											¥
+											<%= h.purchase_amount %>
+										</td>
+										<td class="product-cart-index">
+											注文日:<%= h.created_at.strftime("%Y-%m-%d") %>
+										</td>
+										<td class="product-cart-index">
+											<%= h.order_status %>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<% h.order_details.each do |d| %>
+								<div class ="order-detail">
+									<table>
+										<% if d.product.favorited_by?(current_enduser) %>
+										<tbody>
+											<tr>
+												<td class ="product-cart-index">
+													<%= link_to product_path(d.product.id)do %>
+													<%= attachment_image_tag d.product, :jacket, size: "140x140" , fallback: "l_e_others_500.jpg" %>
+													<% end %>
+												</td>
+
+												<td class="product-cart-index">　</td>
+												<td class="product-cart-index">
+													<p>Teitle：</p>
+													<p>購入枚数：</p>
+													<p>小計：</p>
+
+												</td>
+												<td class="product-cart-index">
+													<P><%= link_to d.product.product_name , product_path(d.product.id) %></P>
+													<p><%= d.purchase_qty %></p>
+													<p><%= d.purchase_price %></p>
+												</td>
+												<td class =" product-cart-index">
+													<p>
+										                <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+										            </p>
+												</td>
+
+											</tr>
+										</tbody>
+										<% else  %>
+										<tbody>
+											<tr>
+												<td class ="product-cart-index">
+													<%= link_to product_path(d.product.id)do %>
+													<%= attachment_image_tag d.product, :jacket, size: "140x140" , fallback: "l_e_others_500.jpg" %>
+													<% end %>
+												</td>
+												<td class="product-cart-index">　</td>
+												<td class="product-cart-index">
+													<p>Teitle：</p>
+													<p>購入枚数：</p>
+													<p>小計：</p>
+												</td>
+												<td class="product-cart-index">
+													<P><%= link_to d.product.product_name , product_path(d.product.id) %></P>
+													<p><%= d.purchase_qty %></p>
+													<p><%= d.purchase_price %></p>
+												</td>
+												<td class="product-cart-index">
+												</td>
+
+											</tr>
+										</tbody>
+										<% end %>
+									</table>
+								</div>
+							<% end %>
+						</div>
+		          <% end %>
+		        </ul>
+		        <ul>
+						<% @favorites.each do |f| %>
+						<div class="product-cart">
+							<table>
+								<tbody>
+									<tr>
+										<td class="product-cart-index" style="padding-left: 5px;">
+											<%= link_to product_path(f.product.id) do %>
+										        <%= attachment_image_tag f.product, :jacket, size: "140x140" , fallback: "l_e_others_500.jpg" %>
+										    <% end %></td>
+										<td class="product-cart-index">　</td>
+										<td class="product-cart-index">
+											<p>Teitle：</p>
+											<p>ジャンル：</p>
+											<p>レーベル：</p>
+											<p>アーティスト</p>
+										</td>
+										<td class="product-cart-index">
+											<label><%= link_to f.product.product_name, product_path(f.product.id) %></label>
+											<p><%= f.product.disks.first.songs.first.genre.genre_name %></p>
+											<p><%= f.product.label.label_name %></p>
+											<p><%= f.product.disks.first.songs.first.artist.artist_name%></p>
+										</td>
+										<td class="product-cart-index">
+											¥
+											<%= f.product.price %>
+
+									           <p><i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+									            </p>
+
+										</td>
+										<td class="product-cart-index"></td>
+										<td class="product-cart-index">　</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<% end %>
+		        </ul>
+		      </div>
+
 			</div>
 		</div>
 	</div>
-</dib>
+	<p id="page-top"><a href="#">PAGE TOP</a></p>
+</div>
+</div>
 
+</body>
 

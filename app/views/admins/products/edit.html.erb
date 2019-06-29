@@ -1,56 +1,56 @@
-<%= render "enduser/admin" %>
-<div class="body">
-  <div class="container">
-    <h1>商品新規登録</h1>
-      <%= form_for(@product, :url => admins_product_path) do |f| %>
+<%= render "endusers/admin" %>
+  <div class="body">
+    <div class="container">
+      <h1>商品情報更新</h1>
+        <%= form_for(@product, :url => admins_product_path(@product)) do |f| %>
 
-        <div class="col-xs-4">
-          <div class="field">
-            <%= f.label :jacket_id, "ジャケット画像" %>
-            <%= f.attachment_field :jacket, class: "col-xs-12 btn btn-default btn-sm" %>
-          </div>
-        </div>
-
-        <div class="col-xs-6">
-          <div class="field">
-            <%= f.label :product_name, "アルバム/シングル名" %>
-            <%= f.text_field :product_name %>
-          </div>
-
-          <div class="field">
-            <%= f.label :label_id, "レーベル名" %>
-            <%= f.select :label_id, options_from_collection_for_select(Label.all, :id, :label_name) %>
-            <%=link_to "レーベル名がなければこちらから追加", labels_path, class: "btn btn-info btn-xs" %>
-          </div>
-
-          <div class="field">
-            <%= f.label :disks, "ディスク" %>
-            <%= f.fields_for :disks do |d| %>
-              <%= render 'disk_fields', :f => d %>
-            <% end %>
-
+          <div class="col-xs-4">
             <div class="field">
-              <%= link_to_add_association "ディスクを追加",f, :disks, {class: "btn btn-info btn-xs", role: "button"} %>
+              <%= f.label "ジャケット画像" %>
+              <%= f.attachment_field :jacket, class: "col-xs-12 btn btn-default btn-sm" %>
             </div>
           </div>
 
-          <div class="field">
-            <%= f.label :product_status, "ステータス" %>
-            <%= f.text_field :product_status %>
-          </div>
+          <div class="col-xs-6">
+            <div class="field">
+              <%= f.label "商品名：" %>
+              <%= f.text_field :product_name, placeholder: "新規登録する商品名を入力" %>
+            </div>
 
-          <div class="field">
-            <%= f.label :product_stock, "在庫数" %>
-            <%= f.text_field :product_stock %>
-          </div>
+            <div class="field">
+              <%= f.label "レーベル名：" %>
+              <%= f.collection_select :label_id, Label.all, :id, :label_name, prompt: @product.label.label_name %>
+              <%=link_to "レーベル名がなければこちらから追加", labels_path, class: "btn btn-primary btn-xs" %>
+            </div>
 
-          <div class="field">
-            <%= f.label :price, "価格(税抜)" %>
-            <%= f.text_field :price %>
-          </div>
+            <div class="field">
+              <%= f.label "ディスク" %>
+              <%= f.fields_for :disks do |d| %>
+                <%= render 'disk_edit_fields', :f => d %>
+              <% end %>
 
-          <%= f.submit "更新" %>
-        </div>
-      <% end %>
+              <div class="field">
+                <%= link_to_add_association "ディスクを追加",f, :disks, {class: "btn btn-primary btn-xs", role: "button"} %>
+              </div>
+            </div>
+
+            <div class="field">
+              <%= f.label "ステータス：" %>
+              <%= f.select :product_status, [["販売中"], ["販売停止中"]] %>
+            </div>
+
+            <div class="field">
+              <%= f.label "在庫数：" %>
+              <%= f.number_field :product_stock, min:0, step:0, placeholder: "新規登録する在庫数を入力" %>
+            </div>
+
+            <div class="field">
+              <%= f.label "価格(税抜)：" %>
+              <%= f.text_field :price, placeholder: "新規登録する価格を入力" %>
+            </div>
+
+            <%= f.submit "更新", class: "btn btn-success btn-sm" %>
+          </div>
+        <% end %>
+    </div>
   </div>
-</div>

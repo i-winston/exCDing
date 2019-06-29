@@ -1,6 +1,6 @@
 <%= render "endusers/admin" %>
-
-<section class="slice slice-lg sct-color-1">
+<div id="wrapper">
+  <section class="slice slice-lg sct-color-1">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 " >
@@ -10,14 +10,14 @@
                      <h2>会員情報編集</h2>
                   </div>
                   <div class="form-body">
-                      <%= form_for(resource, as: resource_name, url: registration_path(resource_name),html: { method: :put }) do |f| %>
+                      <%= form_for(@enduser , url:{controller: "endusers", action: "update"}) do |f| %>
                         <%= render "devise/shared/error_messages", resource: resource %>
 
-                              <div class="col-lg-5 col-md-5">
+                      <div class="col-lg-5 col-md-5">
                         <div class="form-group">
                           <div class="field">
                             <%= f.label "姓" %><br />
-                            <%= f.text_field :family_name, autofocus: true, class:"form-control " , id:"family_name", placeholder:"" %>
+                            <%= f.text_field :family_name, autofocus: true, class:"form-control " , id:"family_name", placeholder:"姓" %>
                           </div>
                         </div>
                       </div>
@@ -35,7 +35,7 @@
                         <div class="form-group">
                           <div class="field">
                             <%= f.label "フリガナ(セイ)" %><br />
-                            <%= f.text_field :family_name_kana, autofocus: true,class:"form-control", id:"family_name_kana", placeholder"フリガナ(セイ)"%>
+                            <%= f.text_field :family_name_kana, autofocus: true,class:"form-control", id:"family_name_kana", placeholder:"フリガナ(セイ)"%>
                           </div>
                         </div>
                       </div>
@@ -57,13 +57,13 @@
                         </div>
                         <div class="form-group">
                             <div class="field">
-                              <%= f.label :郵便番号%><font size="1">*ハイフンあり</font><br />
+                              <%= f.label :郵便番号%><font size="1">*ハイフンあり半角英数</font><br />
                               <%= f.text_field :registration_postal_code, autofocus: true, autocomplete: "registration_postal_code",class:"form-control",id:"registration_postal_code", placeholder:"郵便番号" %>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="field">
-                              <%= f.label :電話番号%><font size="1">*ハイフンあり</font><br />
+                              <%= f.label :電話番号%><font size="1">*ハイフンあり半角英数</font><br />
                               <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number",class:"form-control",id:"phone_number",placeholder:"電話番号" %>
                             </div>
                         </div>
@@ -74,41 +74,25 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="field">
-                              <%= f.label :パスワード %>
-                              <% if @minimum_password_length %>
-                              <font size="1"> *6文字以上　変更しない場合空欄</font>
-                              <% end %><br />
-                              <%= f.password_field :password, autocomplete: "new-password",class:"form-control" , id:"password" , placeholder:"新パスワード"%>
-                            </div>
-                        </div>
-                        <div class="form-group ">
-                              <%= f.label :パスワード確認 %><br />
-                              <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", id:"inputConfirmPassword", placeholder:"パスワード確認" %>
-                        </div>
 
-                        <div class="form-group ">
-                              <%= f.label :現在のパスワード %><br />
-                              <%= f.password_field :current_password, autocomplete: "password", class:"form-control", id:"inputCurrentPassword", placeholder:"現在のパスワード" %>
-                        </div>
                       </div>
 
                         <div class="actions">
                           <div style="padding: 6px, 12px; font-size: 20px; margin: 20px 15px 0 15px; ">
-                            <%= f.submit "変更を保存" , class: "btn btn-block btn-warning"  %>
-                          </div>
-                        </div>
-                        <div class ="actions">
-                          <div style="padding: 6px, 12px; font-size: 20px; margin: 20px 15px 0 15px; ">
-                            <%= button_to "退会" ,registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete ,  class: "btn btn-block btn-danger" %>
+                            <%= f.submit "変更を保存" , class: "btn btn-block btn-warning "  %>
                           </div>
                         </div>
                       </div>
                       <% end %>
+                      <div class ="actions">
+                          <div style="padding: 6px, 12px; font-size: 20px; margin: 20px 15px 0 15px; ">
+                            <%= button_to "アカウント削除" ,registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete ,  class: "btn btn-block btn-danger " %>
+                          </div>
+                        </div>
                   </div>
                 </div>
               </div>
 
 </section>
+</div>
 

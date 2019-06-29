@@ -1,0 +1,22 @@
+<%= form_with(model: add_impressions_count_to_product, local: true) do |form| %>
+  <% if add_impressions_count_to_product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(add_impressions_count_to_product.errors.count, "error") %> prohibited this add_impressions_count_to_product from being saved:</h2>
+
+      <ul>
+      <% add_impressions_count_to_product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :impressions_count %>
+    <%= form.number_field :impressions_count %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

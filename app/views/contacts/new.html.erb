@@ -1,2 +1,34 @@
-<h1>Contacts#new</h1>
-<p>Find me in app/views/contacts/new.html.erb</p>
+
+<%= render "endusers/header" %>
+<div class="container">
+  <div class="row">
+    <div class="newbox col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3 ">
+<%= form_for @contact, :url => contacts_path do |f| %>
+
+
+    <div class="page-header">
+
+      <h1>お問い合わせ</h1>
+  </div>
+  <div class="form-group">
+    <tr>名前<span class="text-danger">（必須）</span>
+      <div class="form-group"><%= f.text_field :name ,class:'form-control'%></div>
+    </tr>
+  </div>
+  <div class="form-group">
+    <tr>
+      <th>タイトル</th>
+      <div class="form-group"><%= f.text_field :contact_title ,class:'form-control'%></div>
+    </tr>
+  </div>
+    <tr>
+      <th>お問い合わせ内容</th>
+      <div class="form-group"><%= f.text_area :contact_message,class:'form-control'%></div>
+    </tr>
+    <%= f.hidden_field :status, value:"未返信" %>
+  </table>
+  <%= f.submit '送信', class: 'btn btn-primary' %>
+<% end %>
+ </div>
+ </div>
+</div>

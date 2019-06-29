@@ -1,3 +1,38 @@
-<%= render "enduser/admin" %>
-<h1>Admins::Contacts#index</h1>
-<p>Find me in app/views/admins/contacts/index.html.erb</p>
+<%= render "endusers/admin" %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+            <table class="table table-border">
+	            <thead>
+		            <tr>
+			            <th>名前</th>
+			            <th>title</th>
+			            <th>問い合わせ内容</th>
+			            <th>返信内容</th>
+			            <th>emailaddres</th>
+		            </tr>
+	            </thead>
+            <% @contact.each do |contact| %>
+                <tbody>
+	                <tr>
+		                <th><%= link_to contact.name, admins_enduser_path(contact.enduser.id) %></th>
+		                <th><%= link_to contact.contact_title, admins_contact_path(contact.id) %></th>
+		                <th><%= contact.contact_message %></th>
+		                <% if ContactAnswer.exists?(contact_id: contact.id) %>
+			                <% if contact.contact_answers.last.answer_message.blank? %>
+			                	<th></th>
+			                <% else %>
+			            	    <th><%= contact.contact_answers.last.answer_message %></th>
+			                <% end %>
+		                <% else %>
+		                	<th></th>
+		                <% end %>
+
+		                <th><%= contact.enduser.email %></th>
+	                </tr>
+                </tbody>
+            <% end %>
+            </table>
+        </div>
+    </div>
+</div>
