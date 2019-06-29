@@ -15,6 +15,7 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     @all_ranks = Product.find(Favorite.group(:product_id).order('count(product_id) desc').limit(5).pluck(:product_id))
+    @most_viewed = Product.order('impressions_count DESC').take(5)
   end
 
   def show
@@ -22,8 +23,9 @@ class ProductsController < ApplicationController
     @cart = ProductCart.new
     @disks = @product.disks
     @price = (@product.price * 1.08).floor
-    @products = ProductCart.where(enduser_id: current_enduser.id )
+
     @count = @product.product_stock - 0
+    impressionist(@product, nil, :unique => [:session_hash])
   
     # @carts = ProductCart.where(enduser_id: current_enduser.id)
     # if @carts.product_ids.include?(@product.id)

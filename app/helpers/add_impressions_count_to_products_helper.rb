@@ -1,0 +1,2 @@
+module AddImpressionsCountToProductsHelper
+end
