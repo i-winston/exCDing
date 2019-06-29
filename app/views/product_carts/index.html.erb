@@ -2,15 +2,12 @@
 <div id="wrapper">
 <div class="container">
 	<% if @carts.blank? %>
+	<div class="col-lg-5 col-lg-offset-1">
 	<h2>商品を追加してください。</h2>
-　　    <label>いいね数ランキング</label>
-        <% @all_ranks.each.with_index(1) do |r, i| %>
-            <h4>
-              <%= "第#{i}位" %>
-                <%= link_to r.product_name , product_path(r.id) %>
-            </h4>
-        <% end %>
-        
+	</div>
+	<div class="col-lg-5 col-lg-offset-1">
+	<p style="padding-top: 20px;"><%= link_to "商品一覧へ",root_path, class: "btn btn-danger col-lg-3"  %></p>
+	</div>
 	<% else %>
 	<h2>ショッピングカート</h2>
 	<div class="row">
