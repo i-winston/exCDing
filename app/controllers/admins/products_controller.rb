@@ -25,6 +25,7 @@ class Admins::ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @disks = @product.disks
     @price = (@product.price * 1.08).floor
+    impressionist(@product, nil, :unique => [:session_hash])
   end
 
   def update

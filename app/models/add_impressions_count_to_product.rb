@@ -1,0 +1,2 @@
+class AddImpressionsCountToProduct < ApplicationRecord
+end

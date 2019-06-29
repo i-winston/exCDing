@@ -1,8 +1,10 @@
 class Product < ApplicationRecord
 
   acts_as_paranoid
+ 
+  is_impressionable counter_cache: true
 
-  
+
   has_many :favorites, dependent: :destroy
   has_many :product_carts, dependent: :destroy
   has_many :order_details, dependent: :destroy
