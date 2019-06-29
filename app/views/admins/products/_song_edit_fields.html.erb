@@ -1,0 +1,25 @@
+<div class="nested-fields well well-compact">
+  	<div class="field">
+    	<%= f.label :song_name, "曲名：" %>
+    	<%= f.text_field :song_name, placeholder: "新規登録する曲名を入力" %>
+	</div>
+
+    <div class="field">
+    	<%= f.label :number, "トラックNo：" %>
+    	<%= f.number_field :number, min:1, step:1, placeholder: "新規登録するトラック番号を入力" %>
+	</div>
+
+    <div class="field">
+        <%= f.label :artist_id, "アーティスト名：" %>
+        <%= f.collection_select :artist_id, Artist.all, :id, :artist_name, prompt: @product.disks.first.songs.first.artist.artist_name %>
+        <%=link_to "アーティスト名を追加", artists_path, class: "btn btn-primary btn-xs" %>
+    </div>
+
+    <div class="field">
+        <%= f.label :genre_id, "ジャンル名：" %>
+        <%= f.collection_select :genre_id, Genre.all, :id, :genre_name, prompt: @product.disks.first.songs.first.genre.genre_name %>
+              <%=link_to "ジャンル名を追加", genres_path, class: "btn btn-primary btn-xs" %>
+    </div>
+
+    <%= link_to_remove_association "曲削除", f, {class: "btn btn-danger btn-xs", role: "button"}%>
+</div>

@@ -10,9 +10,10 @@ class EndusersController < ApplicationController
   def show
     @favorites = Favorite.where(enduser_id: @current_enduser.id)
     # @product = Product.find_by(id: favorites.product_id)
-    @history = Order.order("created_at DESC")
+    
     @history = Order.where(enduser_id: @current_enduser.id )
-    @product = Product.find(params[:id])
+    @history = Order.order("created_at DESC")
+
   end
 
   def like(product)

@@ -18,11 +18,14 @@
 			<% @orders.each do |order| %>
 			<tr>
 				<td><%= order.created_at.strftime("%Y-%m-%d") %></td>
+				<td><%= order.ship_name %></td>
 				<td><%= link_to order.enduser.family_name + order.enduser.first_name, admins_enduser_path(order.enduser.id) %></td>
 				<td><%= order.ship_address %></td>
 				<td><%= order.purchase_amount %></td>
 				<td><%= order.payment %></td>
+
 				<%= form_for(order, :url => admins_order_path(order)) do |f| %>
+
 				<td><%= f.select :order_status, Order.order_statuses.keys.map{|s| [s,s,s]} %></td>
 				<td><%= f.submit "更新", class: "btn btn-success btn-sm" %></td>
 				<% end %>
