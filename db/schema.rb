@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2019_06_26_035152) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "answer_message"
+    t.integer "contact_detail"
     t.integer "contact_status"
   end
 

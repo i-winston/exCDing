@@ -1,9 +1,11 @@
 <%= render "endusers/header" %>
 <div id="wrapper">
   <div class="bg-1"></div>
+
   <div class="bg-1">
     <div style="padding-top: 50px;">
           <ul class ="bxslider-3" style="width: 100%;">
+
             <% @products.each do |j| %>
               <li>
               <%= link_to product_path(j.id) do %>
@@ -38,9 +40,11 @@
             </li>
         </ul>
       </div>
+
     </div>
 
-<div class="block"></div>
+
+
 
 
 <div class="container">
@@ -56,9 +60,11 @@
                   <%= attachment_image_tag r, :jacket, size: "140x140" , fallback: "l_e_others_500.jpg" %>
                 <% end %>
             <%= link_to r.product_name , product_path(r.id) %>
+             <P><i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+                <%= r.favorites.count  %></P>
         </h4>
       <% end %>
-          <label>PV数ランキング</label>
+          <label style="padding-top: 90px;">PV数ランキング</label>
           <% @most_viewed.each.with_index(1) do |rank, i| %>
             <h4>
               <td><%= "#{i}位" %></td>
@@ -66,7 +72,11 @@
                   <%= attachment_image_tag rank, :jacket, size: "140x140" , fallback: "l_e_others_500.jpg" %>
                 <% end %>
               <%= link_to rank.product_name , product_path(rank.id) %>
-              <%= rank.impressions_count %>pv
+              <% if rank.impressions_count.blank? %>
+              <p>0pv</p>
+              <% else %>
+              <p><%= rank.impressions_count %>pv</p>             
+              <% end %>
             </h4>
           <% end %>
         </tbody>
@@ -94,9 +104,12 @@
               <% end %>
             </th>
           </div>
+
         <% end %>
       </div>
+
       <p id="page-top"><a href="#">PAGE TOP</a></p>
+
     </div>
   </div>
 </div>
