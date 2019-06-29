@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
     @cart = ProductCart.new
     @disks = @product.disks
     @price = (@product.price * 1.08).floor
-    @products = ProductCart.where(enduser_id: current_enduser.id )
+
     @count = @product.product_stock - 0
     impressionist(@product, nil, :unique => [:session_hash])
   
