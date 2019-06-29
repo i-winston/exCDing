@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :add_impressions_count_to_products
   post 'admins/products/new' => 'admins_products#create'
   devise_for :admins, controllers: {
     sessions: 'admins/sessions',
