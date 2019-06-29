@@ -1,6 +1,7 @@
 class Admins::ContactsController < ApplicationController
   def index
     @contact = Contact.all
+    @contact = Contact.order("created_at DESC")
   end
 
   def show
